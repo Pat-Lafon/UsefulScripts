@@ -22,3 +22,6 @@ function cd() {
 ### Resize terminal
 ``` printf '\033[8;<height>;<width>t' ```
 ``` printf '\033[8;25;100t' ```
+
+### Remove .DS_Store files
+``` find ~ -name ".DS_Store" -delete 2>/dev/null & ``` 
