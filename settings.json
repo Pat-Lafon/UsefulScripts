@@ -1,0 +1,91 @@
+{
+    // General settings
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    "editor.fontSize": 12,
+    "editor.tabSize": 4,
+    "editor.suggestSelection": "first",
+    "editor.wordWrap": "on",
+    "editor.formatOnPaste": true,
+    "editor.hover.delay": 100,
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        90
+    ],
+
+    "workbench.statusBar.visible": true,
+    "window.zoomLevel": 0,
+
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+
+
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "terminal.integrated.cursorBlinking": true,
+
+    // Git settings
+    "git.autofetch": true,
+    "git.promptToSaveFilesBeforeCommit": "always",
+    "git.confirmEmptyCommits": true,
+
+    // Spell check settings
+    "cSpell.language": "en",
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "go",
+        "handlebars",
+        "html",
+        "jade",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "latex",
+        "less",
+        "markdown",
+        "ocaml",
+        "php",
+        "plaintext",
+        "pub",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yml"
+    ],
+
+    // Python settings
+    "python.autoComplete.addBrackets": true,
+    "python.jediEnabled": false,
+    "python.formatting.provider": "black",
+
+    // Java settings
+    "java.configuration.checkProjectSettingsExclusions": false,
+
+    // C++ settings
+    "C_Cpp.default.cppStandard": "c++11",
+    "C_Cpp.default.cStandard": "c11",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
+
+    // Latex settings
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.intellisense.unimathsymbols.enabled": true,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.autoBuild.interval": 2000,
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.intellisense.update.delay": 500,
+    "latex-workshop.view.pdf.viewer": "tab",
+
+    // Html settings
+    "html.format.wrapLineLength": 90,
+    "html.format.indentInnerHtml": true
+}
