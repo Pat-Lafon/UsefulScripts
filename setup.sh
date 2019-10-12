@@ -1,6 +1,12 @@
 #!/bin/bash
 
 # For setting up my mac
+
+# Things to be installed
+brewPackages=(emacs python thefuck git htop)
+brewCasks=(visual-studio-code)
+
+# Doing installation
 if command -v xcode-select >/dev/null 2>&1 ; then
     echo "xcode-select already installed"
 else
@@ -15,20 +21,27 @@ else
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-if command -v emacs >/dev/null 2>&1 ; then
-    echo "emacs already installed"
-else
-    echo "emacs not found"
-    brew install emacs
-fi
 
-if command -v code >/dev/null 2>&1 ; then
-    echo "code already installed"
-else
-    echo "code not found"
-    brew cask install visual-studio-code
-fi
+for i in "${brewPackages[@]}"; do
+    if brew ls --versions $i > /dev/null; then
+        brew upgrade $i
+    else
+        brew install $i
+    fi
+done
+
+for i in "${brewCasks[@]}"; do
+    if brew cask ls --versions $i > /dev/null; then
+        true
+    else
+        brew cask install $i
+    fi
+done
+brew cask upgrade
+
 
 CodeSettings=$PWD/settings.json
-echo $CodeSettings
 ln -sf $CodeSettings ~/Library/Application\ Support/Code/User
+
+BashSettings=$PWD/.bashrc
+ln -sf $BashSettings ~
