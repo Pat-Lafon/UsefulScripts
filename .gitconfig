@@ -1,0 +1,25 @@
+[user]
+        name = Patrick LaFontaine
+        email = 32135464+Pat-Lafon@users.noreply.github.com
+
+[core]
+        editor = emacs
+
+[color]
+    ui = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = red

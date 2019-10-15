@@ -9,8 +9,8 @@ else
 fi
 
 # Things to be installed
-brewPackages=(emacs python thefuck git htop)
-brewCasks=(visual-studio-code)
+brewPackages=(emacs python thefuck git htop docker erlang ocaml opam)
+brewCasks=(visual-studio-code firefox)
 
 # Check homebrew installer is available
 if command -v xcode-select >/dev/null 2>&1; then
@@ -48,6 +48,12 @@ brew cask upgrade
 # Set up symlinks
 CodeSettings=$PWD/settings.json
 ln -sf $CodeSettings ~/Library/Application\ Support/Code/User
+echo Created VScode settings link
 
 BashSettings=$PWD/.bashrc
 ln -sf $BashSettings ~
+echo Created Bash settings link
+
+GitSettings=$PWD/.gitconfig
+ln -sf $GitSettings ~
+echo Created Git settings link
