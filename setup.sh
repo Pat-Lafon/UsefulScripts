@@ -31,15 +31,16 @@ fi
 # Doing installation
 for i in "${brewPackages[@]}"; do
     if brew ls --versions $i > /dev/null; then
-        brew upgrade $i
+        echo $i was already installed
     else
         brew install $i
     fi
 done
+brew upgrade
 
 for i in "${brewCasks[@]}"; do
     if brew cask ls --versions $i > /dev/null; then
-        true
+        echo $i was already installed
     else
         brew cask install $i
     fi
@@ -47,8 +48,13 @@ done
 brew cask upgrade
 
 if command -v code >/dev/null 2>&1; then
+    currentExtensions="code --list-extensions"
     for i in "${codeExtensions[@]}"; do
-        code --install-extension $i
+        if $currentExtensions|grep $i >/dev/null 2>&1; then
+            echo $i is already installed for VScode
+        else
+            code --install-extension $i
+        fi
     done
 else
     echo "VScode was not installed so we won't do extensions"
