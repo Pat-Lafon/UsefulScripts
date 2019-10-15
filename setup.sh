@@ -11,6 +11,7 @@ fi
 # Things to be installed
 brewPackages=(emacs python thefuck git htop docker erlang ocaml opam)
 brewCasks=(visual-studio-code firefox)
+codeExtensions=(ms-vscode.cpptools streetsidesoftware.code-spell-checker ms-python.python james-yu.latex-workshop pgourlain.erlang)
 
 # Check homebrew installer is available
 if command -v xcode-select >/dev/null 2>&1; then
@@ -44,6 +45,15 @@ for i in "${brewCasks[@]}"; do
     fi
 done
 brew cask upgrade
+
+if command -v code >/dev/null 2>&1; then
+    for i in "${codeExtensions[@]}"; do
+        code --install-extension $i
+    done
+else
+    echo "VScode was not installed so we won't do extensions"
+fi
+
 
 # Set up symlinks
 CodeSettings=$PWD/settings.json
