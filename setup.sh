@@ -70,6 +70,10 @@ BashSettings=$PWD/.bashrc
 ln -sf $BashSettings ~
 echo Created Bash settings link
 
+ProfileSettings=$PWD/.bash_profile
+ln -sf $ProfileSettings ~
+echo Created Bash_Profile settings link
+
 GitSettings=$PWD/.gitconfig
 ln -sf $GitSettings ~
 echo Created Git settings link

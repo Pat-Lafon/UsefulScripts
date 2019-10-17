@@ -87,5 +87,9 @@
 
     // Html settings
     "html.format.wrapLineLength": 90,
-    "html.format.indentInnerHtml": true
+    "html.format.indentInnerHtml": true,
+    "latex-workshop.latex.external.build.command": "pdflatex",
+    "[latex]": {
+
+    }
 }
