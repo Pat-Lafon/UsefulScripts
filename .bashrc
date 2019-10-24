@@ -2,6 +2,7 @@ printf '\033[8;25;100t'
 
 alias python='python3'
 alias pip='pip3'
+
 eval $(thefuck --alias)
 alias f="fuck"
 
@@ -14,10 +15,18 @@ function cd() {
     if [[ -d venv ]]
     then
         source venv/bin/activate
-        ls -l
-    else
-        ls -l
     fi
+    ls -l
+}
+
+function rm() {
+    if [[ $* == *-r* ]]
+    then
+        command rm -f "$@"
+    else
+        command rm "$@"
+    fi
+    ls -l
 }
 
 function extract() {

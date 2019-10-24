@@ -19,6 +19,19 @@ function cd() {
 }
 ```
 
+### When using ```rm -r```, add the ```-f``` flag and then show files
+```
+function rm() {
+    if [[ $* == *-r* ]]
+    then
+        command rm -f "$@"
+    else
+        command rm "$@"
+    fi
+    ls -l
+}
+```
+
 ### Function to open compressed files
 ```
 function extract() {
