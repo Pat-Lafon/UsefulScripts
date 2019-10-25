@@ -1,4 +1,5 @@
 printf '\033[8;25;100t'
+ls -l
 
 alias python='python3'
 alias pip='pip3'
