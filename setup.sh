@@ -10,7 +10,7 @@ fi
 
 # Things to be installed
 brewPackages=(emacs python thefuck git htop docker erlang ocaml opam)
-brewCasks=(visual-studio-code firefox mactex)
+brewCasks=(visual-studio-code firefox mactex java)
 codeExtensions=(ms-vscode.cpptools streetsidesoftware.code-spell-checker ms-python.python james-yu.latex-workshop pgourlain.erlang)
 
 # Check homebrew installer is available
