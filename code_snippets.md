@@ -1,26 +1,36 @@
-### Most commonly used commands
-```alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl |  head"```
+# Useful code snippets
 
-### Get the largest folders of the current directory
-```du -ah * | sort -hr | head -n 20```
+## Most commonly used commands
 
-### On entering a directory activate venv and show files
+```bash
+alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' | grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl |  head"
 ```
+
+## Get the largest folders of the current directory
+
+```bash
+du -ah * | sort -hr | head -n 20
+```
+
+## On entering a directory activate venv and show files
+
+```bash
 function cd() {
     command cd "$@" || return
 
     if [[ -d venv ]]
     then
-	      source venv/bin/activate
-	      ls -l
+          source venv/bin/activate
+          ls -l
     else
-	      ls -l
+          ls -l
     fi
 }
 ```
 
-### When using ```rm -r```, add the ```-f``` flag and then show files
-```
+## When using ```rm -r```, add the ```-f``` flag and then show files
+
+```bash
 function rm() {
     if [[ $* == *-r* ]]
     then
@@ -32,8 +42,9 @@ function rm() {
 }
 ```
 
-### Function to open compressed files
-```
+## Function to open compressed files
+
+```bash
 function extract() {
     if [ -f $1 ]; then
         case $1 in
@@ -51,14 +62,20 @@ function extract() {
             *)     echo "'$1' cannot be extracted via extract()" ;;
         esac
     else
-	    echo $1 is not a valid file
+        echo $1 is not a valid file
     fi
 }
 ```
 
-### Resize terminal
-``` printf '\033[8;<height>;<width>t' ```
-``` printf '\033[8;25;100t' ```
+## Resize terminal
 
-### Remove .DS_Store files
-``` find ~ -name ".DS_Store" -delete 2>/dev/null & ```
+```bash
+printf '\033[8;<height>;<width>t'
+printf '\033[8;25;100t'
+```
+
+## Remove .DS_Store files
+
+```bash
+find ~ -name ".DS_Store" -delete 2>/dev/null &
+```
