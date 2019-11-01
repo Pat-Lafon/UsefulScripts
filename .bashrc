@@ -1,5 +1,4 @@
 printf '\033[8;25;100t'
-ls -l
 
 alias python='python3'
 alias pip='pip3'
@@ -9,6 +8,17 @@ alias f="fuck"
 
 alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' |\
  grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head"
+
+function ls() {
+    if [[ $* == *-l* ]]
+    then
+        command ls -GhL "$@"
+    else
+        command ls "$@"
+    fi
+}
+
+ls -l
 
 function cd() {
     command cd "$@" || return
