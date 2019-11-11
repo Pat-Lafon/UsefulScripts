@@ -2,6 +2,12 @@
     // General settings
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.cursorBlinking": true,
+    // Editor settings
     "editor.fontSize": 12,
     "editor.tabSize": 4,
     "editor.suggestSelection": "first",
@@ -10,15 +16,16 @@
     "editor.hover.delay": 100,
     "editor.formatOnSave": true,
     "editor.rulers": [
-        90
+        120
     ],
+    "editor.wordWrapColumn": 120,
+    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.enablePreview": false,
+    "diffEditor.ignoreTrimWhitespace": false,
     "workbench.statusBar.visible": true,
     "window.zoomLevel": 0,
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 500,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "terminal.integrated.cursorBlinking": true,
     // Git settings
     "git.autofetch": true,
     "git.promptToSaveFilesBeforeCommit": "always",
@@ -74,8 +81,8 @@
     "latex-workshop.message.warning.show": false,
     "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
     // Html settings
-    "html.format.wrapLineLength": 90,
+    "html.format.wrapLineLength": 120,
     "html.format.indentInnerHtml": true,
-    // Maven build settings
-    "maven.executable.path": "/Users/patricklafontaine/.vscode/extensions/vscjava.vscode-maven-0.19.1/resources/maven-wrapper/mvnw"
+    // Java settings
+    "java.configuration.checkProjectSettingsExclusions": false
 }
