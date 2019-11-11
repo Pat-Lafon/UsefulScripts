@@ -12,19 +12,34 @@ alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[
 du -ah * | sort -hr | head -n 20
 ```
 
-## On entering a directory activate venv and show files
+## An improved list directory
+
+ls is my most used command so trying to improve it's output is a no-brainer. Not sure if I want to see that a link is symbolic or not so it may not be worth adding ```-L```.
+
+```bash
+function ls() {
+    if [[ $* == *l* ]]
+    then
+        command ls -GhL "$@"
+    else
+        command ls "$@"
+    fi
+}
+```
+
+## On entering a directory activate any virtual environment and show files
+
+Intuitively, I want to use symbolic links as shortcuts to get to useful directories. I feel like without ```cd -P``` the shell is lying to you.
 
 ```bash
 function cd() {
-    command cd "$@" || return
+    command cd -P "$@" || return
 
     if [[ -d venv ]]
     then
-          source venv/bin/activate
-          ls -l
-    else
-          ls -l
+        source venv/bin/activate
     fi
+    ls -l
 }
 ```
 
@@ -32,7 +47,7 @@ function cd() {
 
 ```bash
 function rm() {
-    if [[ $* == *-r* ]]
+    if [[ $* == *r* ]]
     then
         command rm -f "$@"
     else
@@ -76,6 +91,8 @@ printf '\033[8;25;100t'
 
 ## Remove .DS_Store files
 
+A little extra work is done so that this line can run in the background and do so quietly.
+
 ```bash
-find ~ -name ".DS_Store" -delete 2>/dev/null &
+(&>/dev/null find ~ -name ".DS_Store" -delete &)
 ```

@@ -10,7 +10,7 @@ alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[
  grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head"
 
 function ls() {
-    if [[ $* == *-l* ]]
+    if [[ $* == *l* ]]
     then
         command ls -GhL "$@"
     else
@@ -31,7 +31,7 @@ function cd() {
 }
 
 function rm() {
-    if [[ $* == *-r* ]]
+    if [[ $* == *r* ]]
     then
         command rm -f "$@"
     else
