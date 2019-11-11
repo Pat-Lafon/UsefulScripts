@@ -21,7 +21,7 @@ function ls() {
 ls -l
 
 function cd() {
-    command cd "$@" || return
+    command cd -P "$@" || return
 
     if [[ -d venv ]]
     then
