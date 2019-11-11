@@ -12,6 +12,14 @@ alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[
 du -ah * | sort -hr | head -n 20
 ```
 
+## Print out a calendar for the current month
+
+This comes as a built in function so there isn't anything that special but I didn't know about it and it's actually really cool so it gets a spot.
+
+```bash
+    cal
+```
+
 ## An improved list directory
 
 ls is my most used command so trying to improve it's output is a no-brainer. Not sure if I want to see that a link is symbolic or not so it may not be worth adding ```-L```.
