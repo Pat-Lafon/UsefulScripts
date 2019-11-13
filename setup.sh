@@ -77,3 +77,7 @@ echo Created Bash_Profile settings link
 GitSettings=$PWD/.gitconfig
 ln -sf $GitSettings ~
 echo Created Git settings link
+
+EmacsSettings=$PWD/.emacs
+ln -sf $EmacsSettings ~
+echo Created Emacs settings link
