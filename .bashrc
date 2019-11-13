@@ -40,6 +40,15 @@ function rm() {
     ls -l
 }
 
+function cat() {
+    if [[ $* == *.md* ]]
+    then
+        command mdcat "$@"
+    else
+        command ccat "$@"
+    fi
+}
+
 function extract() {
     if [ -f $1 ]; then
         case $1 in

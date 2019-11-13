@@ -9,7 +9,7 @@ else
 fi
 
 # Things to be installed
-brewPackages=(emacs python thefuck git htop docker erlang ocaml opam bash rebar3 gcc)
+brewPackages=(emacs python thefuck git htop docker erlang ocaml opam bash rebar3 gcc ccat mdcat)
 brewCasks=(visual-studio-code firefox mactex java slack)
 codeExtensions=(ms-vscode.cpptools streetsidesoftware.code-spell-checker ms-python.python james-yu.latex-workshop pgourlain.erlang)
 
