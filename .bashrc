@@ -1,5 +1,3 @@
-printf '\033[8;25;100t'
-
 alias python='python3'
 alias pip='pip3'
 
@@ -17,8 +15,6 @@ function ls() {
         command ls "$@"
     fi
 }
-
-ls -l
 
 function cd() {
     command cd -P "$@" || return
@@ -69,5 +65,3 @@ function extract() {
 	    echo $1 is not a valid file
     fi
 }
-
-(&>/dev/null find ~ -name ".DS_Store" -delete &)
