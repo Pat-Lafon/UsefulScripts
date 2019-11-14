@@ -5,6 +5,12 @@
 [core]
         editor = emacs
 
+[alias]
+	ls = branch
+	#rm = 'branch -d'
+	cd = checkout
+	#mkdir = 'checkout -b'
+
 [color]
     ui = true
 
