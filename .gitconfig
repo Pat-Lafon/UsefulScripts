@@ -2,14 +2,11 @@
         name = Patrick LaFontaine
         email = 32135464+Pat-Lafon@users.noreply.github.com
 
+[github]
+	user = Pat-Lafon
+
 [core]
         editor = emacs
-
-[alias]
-	ls = branch
-	#rm = 'branch -d'
-	cd = checkout
-	#mkdir = 'checkout -b'
 
 [color]
     ui = true
