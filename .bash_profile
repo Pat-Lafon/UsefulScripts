@@ -10,6 +10,8 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
-ls -l
+#ls -l
+
+rm .bash_history .python_history
 
 (&>/dev/null find ~ -name ".DS_Store" -delete &)
