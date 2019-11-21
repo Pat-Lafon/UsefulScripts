@@ -61,6 +61,25 @@
         "typescriptreact",
         "yml"
     ],
+    // TODO_list settings
+    "todohighlight.isCaseSensitive": false,
+    "todohighlight.keywords": [
+        "todo",
+        "fixme"
+    ],
+    "todohighlight.exclude": [
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/.vscode/**",
+        "**/.github/**",
+        "**/_output/**",
+        "**/*.min.*",
+        "**/*.map",
+        "**/.next/**",
+        "**/settings.json"
+    ],
     // Python settings
     "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false,
