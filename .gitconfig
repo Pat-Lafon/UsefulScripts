@@ -1,12 +1,12 @@
 [user]
-        name = Patrick LaFontaine
-        email = 32135464+Pat-Lafon@users.noreply.github.com
+    name = Patrick LaFontaine
+    email = 32135464+Pat-Lafon@users.noreply.github.com
 
 [github]
 	user = Pat-Lafon
 
 [core]
-        editor = emacs
+    editor = emacs
 
 [color]
     ui = true
