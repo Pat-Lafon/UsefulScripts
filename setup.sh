@@ -60,24 +60,5 @@ else
     echo "VScode was not installed so we won't do extensions"
 fi
 
-
-# Set up symlinks
-CodeSettings=$PWD/settings.json
-ln -sf $CodeSettings ~/Library/Application\ Support/Code/User
-echo Created VScode settings link
-
-BashSettings=$PWD/.bashrc
-ln -sf $BashSettings ~
-echo Created Bash settings link
-
-ProfileSettings=$PWD/.bash_profile
-ln -sf $ProfileSettings ~
-echo Created Bash_Profile settings link
-
-GitSettings=$PWD/.gitconfig
-ln -sf $GitSettings ~
-echo Created Git settings link
-
-EmacsSettings=$PWD/.emacs
-ln -sf $EmacsSettings ~
-echo Created Emacs settings link
+chmod +x link.sh
+./link.sh
