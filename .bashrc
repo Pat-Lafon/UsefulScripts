@@ -7,6 +7,23 @@ alias f="fuck"
 alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' |\
  grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head"
 
+# This makes some assumptions about the ordering of arguments that may not be true
+function brew() {
+    if [[ $1 == "rm" || $1 == "uninstall" ]]
+    then
+        shift
+        command brew rm "$@"
+        deps=$(join <(brew leaves) <(brew deps $1))
+        if [[ $deps != "" ]]
+        then
+            echo $deps
+            command brew rm $deps
+        fi
+    else
+        command brew "$@"
+    fi
+}
+
 function ls() {
     if [[ $* == *l* ]]
     then
