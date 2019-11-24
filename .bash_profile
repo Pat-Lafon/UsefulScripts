@@ -14,4 +14,6 @@ fi
 
 rm .bash_history .python_history
 
-(&>/dev/null find ~ -name ".DS_Store" -delete &)
+if [ "$(uname)" == "Darwin" ]; then
+    (&>/dev/null find ~ -name ".DS_Store" -delete &)
+fi
