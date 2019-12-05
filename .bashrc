@@ -1,6 +1,10 @@
 alias python='python3'
 alias pip='pip3'
 
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+eval "$(starship init bash)"
+
 eval $(thefuck --alias)
 alias f="fuck"
 
