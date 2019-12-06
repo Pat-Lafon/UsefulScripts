@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Set up symlinks
 if command -v code >/dev/null 2>&1; then
     CodeSettings=$PWD/settings.json
