@@ -11,7 +11,7 @@
     "editor.fontSize": 12,
     "editor.tabSize": 4,
     "editor.suggestSelection": "first",
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "bounded",
     "editor.formatOnPaste": true,
     "editor.hover.delay": 100,
     "editor.formatOnSave": true,
