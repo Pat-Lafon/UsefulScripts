@@ -3,7 +3,7 @@
 
 # Check if bash is the main shell
 if [[ $SHELL == /bin/bash ]]; then
-    echo $SHELL
+    echo "$SHELL"
 else
     chsh -s /bin/bash
 fi
@@ -30,19 +30,19 @@ fi
 
 # Doing installation
 for i in "${brewPackages[@]}"; do
-    if brew ls --versions $i > /dev/null; then
-        echo $i was already installed
+    if brew ls --versions "$i" > /dev/null; then
+        echo "$i" was already installed
     else
-        brew install $i
+        brew install "$i"
     fi
 done
 brew upgrade
 
 for i in "${brewCasks[@]}"; do
-    if brew cask ls --versions $i > /dev/null; then
-        echo $i was already installed
+    if brew cask ls --versions "$i" > /dev/null; then
+        echo "$i" was already installed
     else
-        brew cask install $i
+        brew cask install "$i"
     fi
 done
 brew cask upgrade
@@ -50,10 +50,10 @@ brew cask upgrade
 if command -v code >/dev/null 2>&1; then
     currentExtensions="code --list-extensions"
     for i in "${codeExtensions[@]}"; do
-        if $currentExtensions|grep $i >/dev/null 2>&1; then
+        if $currentExtensions|grep "$i" >/dev/null 2>&1; then
             echo $i is already installed for VScode
         else
-            code --install-extension $i
+            code --install-extension "$i"
         fi
     done
 else
