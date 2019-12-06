@@ -51,7 +51,7 @@ if command -v code >/dev/null 2>&1; then
     currentExtensions="code --list-extensions"
     for i in "${codeExtensions[@]}"; do
         if $currentExtensions|grep "$i" >/dev/null 2>&1; then
-            echo $i is already installed for VScode
+            echo "$i" is already installed for VScode
         else
             code --install-extension "$i"
         fi
