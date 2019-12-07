@@ -8,11 +8,15 @@ My collection of useful scripts
 
 The main focus of this repository is on the config files.
 
-- Shell: Bash -> [.bash_profile](.bash_profile) and [.bashrc](.bashrc)
-- Editor: Emacs -> [.emacs](.emacs)
-- IDE: Vscode -> [settings.json](settings.json)
-- Version Control: Git -> [.gitconfig](.gitconfig)
-- Remote login: ssh -> [ssh/rc](ssh_rc)
+* Shell: Bash -> [.bash_profile](.bash_profile) and [.bashrc](.bashrc)
+
+* Editor: Emacs -> [.emacs](.emacs)
+
+* IDE: Vscode -> [settings.json](settings.json)
+
+* Version Control: Git -> [.gitconfig](.gitconfig)
+
+* Remote login: ssh -> [ssh/rc](ssh_rc)
 
 ## Setup file
 
