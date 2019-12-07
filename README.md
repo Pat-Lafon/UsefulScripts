@@ -2,6 +2,8 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cefd4d0b30d64b62803280aeb84745f4)](https://www.codacy.com/manual/pat.lafontaine19/UsefulScripts?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Pat-Lafon/UsefulScripts&amp;utm_campaign=Badge_Grade)
 
+[![Coverage Status](https://coveralls.io/repos/github/Pat-Lafon/UsefulScripts/badge.svg?branch=master)](https://coveralls.io/github/Pat-Lafon/UsefulScripts?branch=master)
+
 My collection of useful scripts
 
 ## Dot files
