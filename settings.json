@@ -84,6 +84,9 @@
     "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false,
     "python.formatting.provider": "black",
+    "[python]": {
+        "editor.formatOnPaste": false // because black cannot format on paste
+    },
     // C++ settings
     "C_Cpp.default.cppStandard": "c++17",
     "C_Cpp.default.cStandard": "c17",
