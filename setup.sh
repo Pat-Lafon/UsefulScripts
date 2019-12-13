@@ -9,9 +9,25 @@ else
 fi
 
 # Things to be installed
-brewPackages=(emacs python thefuck git htop docker erlang ocaml opam bash rebar3 gcc ccat mdcat starship)
-brewCasks=(visual-studio-code firefox mactex java slack)
-codeExtensions=(ms-vscode.cpptools streetsidesoftware.code-spell-checker ms-python.python james-yu.latex-workshop pgourlain.erlang wayou.vscode-todo-highlight)
+brewPackages=(emacs python thefuck git htop docker erlang ocaml opam bash rebar3 gcc ccat mdcat starship rebar3)
+brewCasks=(visual-studio-code firefox mactex java slack spotify)
+codeExtensions=(DavidAnson.vscode-markdownlint \
+                freebroccolo.reasonml \
+                hiro-sun.vscode-emacs \
+                James-Yu.latex-workshop \
+                mattn.Lisp \
+                ms-python.python \
+                ms-vscode.cpptools \
+                pgourlain.erlang \
+                redhat.java \
+                streetsidesoftware.code-spell-checker \
+                VisualStudioExptTeam.vscodeintellicode \
+                vscjava.vscode-java-debug \
+                vscjava.vscode-java-dependency \
+                vscjava.vscode-java-pack \
+                vscjava.vscode-java-test \
+                wayou.vscode-todo-highlight \
+                zxh404.vscode-proto3)
 
 # Check homebrew installer is available
 if command -v xcode-select >/dev/null 2>&1; then
