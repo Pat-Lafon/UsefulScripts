@@ -12,6 +12,14 @@ alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[
 du -ah * | sort -hr | head -n 20
 ```
 
+## Clean out homebrew
+
+A quick one liner to get rid of all homebrew installs for a clean start.
+
+```bash
+brew list -1 | xargs brew rm
+```
+
 ## Print out a calendar for the current month
 
 This comes as a built in function so there isn't anything that special but I didn't know about it and it's actually really cool so it gets a spot.
