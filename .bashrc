@@ -44,7 +44,13 @@ function cd() {
     then
         source venv/bin/activate
     fi
-    ls -l
+
+    if [[ $? -eq 0 ]]
+    then
+       ls -l
+    else
+        exit $?
+    fi
 }
 
 function rm() {
@@ -54,7 +60,13 @@ function rm() {
     else
         command rm "$@"
     fi
-    ls -l
+
+    if [[ $? -eq 0 ]]
+    then
+       ls -l
+    else
+        exit $?
+    fi
 }
 
 function cat() {
