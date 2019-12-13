@@ -10,10 +10,6 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
-#ls -l
-
-rm .bash_history .python_history
-
 if [ "$(uname)" == "Darwin" ]; then
     (&>/dev/null find ~ -name ".DS_Store" -delete &)
 fi
