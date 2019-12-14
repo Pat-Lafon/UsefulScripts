@@ -10,6 +10,8 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
+ls -l
+
 if [ "$(uname)" == "Darwin" ]; then
     (&>/dev/null find ~ -name ".DS_Store" -delete &)
 fi
