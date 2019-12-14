@@ -49,7 +49,7 @@ function cd() {
     then
        ls -l
     else
-        exit $?
+        return $?
     fi
 }
 
@@ -65,7 +65,7 @@ function rm() {
     then
        ls -l
     else
-        exit $?
+        return $?
     fi
 }
 
