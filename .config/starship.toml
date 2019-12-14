@@ -1,0 +1,29 @@
+[cmd_duration]
+disabled = true # Don't show command duration... only since last command not how long it took
+
+[directory]
+truncation_length = 4 # how much depth should be shown from root or repo
+
+[git_branch]
+symbol = "🌱 "
+
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged.value = "++"
+staged.style = "green"
+staged_count.enabled = true
+staged_count.style = "green"
+renamed = "👅"
+deleted = "🗑"
+
+
+[hostname]
+ssh_only = true
+prefix = "⟪"
+suffix = "⟫"
