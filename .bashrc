@@ -1,7 +1,9 @@
 alias python='python3'
 alias pip='pip3'
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+if [[ -d ~/.linuxbrew ]]; then
+    eval $(/home/pwl45/.linuxbrew/bin/brew shellenv)
+fi
 
 eval "$(starship init bash)"
 

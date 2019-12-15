@@ -2,6 +2,7 @@
 
 export PATH=${PATH}:/usr/textbin
 export PATH="/usr/local/sbin:$PATH"
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 if [ "$(uname)" == "Darwin" ]; then
     export BASH_SILENCE_DEPRECATION_WARNING=1
