@@ -3,7 +3,7 @@
 export PATH=${PATH}:/usr/textbin
 export PATH="/usr/local/sbin:$PATH"
 
-if [ -f /usr/libexec/java_hom -v 1.8 ]; then
+if [ -f /usr/libexec/java_hom ]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 fi
   
