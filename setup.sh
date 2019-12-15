@@ -3,15 +3,31 @@
 
 # Check if bash is the main shell
 if [[ $SHELL == /bin/bash ]]; then
-    echo $SHELL
+    echo "$SHELL"
 else
     chsh -s /bin/bash
 fi
 
 # Things to be installed
-brewPackages=(emacs python thefuck git htop docker erlang ocaml opam bash rebar3 gcc ccat mdcat)
-brewCasks=(visual-studio-code firefox mactex java slack)
-codeExtensions=(ms-vscode.cpptools streetsidesoftware.code-spell-checker ms-python.python james-yu.latex-workshop pgourlain.erlang wayou.vscode-todo-highlight)
+brewPackages=(emacs python thefuck git htop docker erlang ocaml opam bash rebar3 gcc ccat mdcat starship rebar3)
+brewCasks=(visual-studio-code firefox mactex java slack spotify)
+codeExtensions=(DavidAnson.vscode-markdownlint \
+                freebroccolo.reasonml \
+                hiro-sun.vscode-emacs \
+                James-Yu.latex-workshop \
+                mattn.Lisp \
+                ms-python.python \
+                ms-vscode.cpptools \
+                pgourlain.erlang \
+                redhat.java \
+                streetsidesoftware.code-spell-checker \
+                VisualStudioExptTeam.vscodeintellicode \
+                vscjava.vscode-java-debug \
+                vscjava.vscode-java-dependency \
+                vscjava.vscode-java-pack \
+                vscjava.vscode-java-test \
+                wayou.vscode-todo-highlight \
+                zxh404.vscode-proto3)
 
 # Check homebrew installer is available
 if command -v xcode-select >/dev/null 2>&1; then
@@ -30,19 +46,19 @@ fi
 
 # Doing installation
 for i in "${brewPackages[@]}"; do
-    if brew ls --versions $i > /dev/null; then
-        echo $i was already installed
+    if brew ls --versions "$i" > /dev/null; then
+        echo "$i" was already installed
     else
-        brew install $i
+        brew install "$i"
     fi
 done
 brew upgrade
 
 for i in "${brewCasks[@]}"; do
-    if brew cask ls --versions $i > /dev/null; then
-        echo $i was already installed
+    if brew cask ls --versions "$i" > /dev/null; then
+        echo "$i" was already installed
     else
-        brew cask install $i
+        brew cask install "$i"
     fi
 done
 brew cask upgrade
@@ -50,10 +66,10 @@ brew cask upgrade
 if command -v code >/dev/null 2>&1; then
     currentExtensions="code --list-extensions"
     for i in "${codeExtensions[@]}"; do
-        if $currentExtensions|grep $i >/dev/null 2>&1; then
-            echo $i is already installed for VScode
+        if $currentExtensions|grep "$i" >/dev/null 2>&1; then
+            echo "$i" is already installed for VScode
         else
-            code --install-extension $i
+            code --install-extension "$i"
         fi
     done
 else

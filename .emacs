@@ -4,3 +4,6 @@
 ;; The only proper tab formatting
 (setq tab-width 4)
 (setq indent-tabs-mode nil)
+
+;; Make sure emacs knows the background is black
+(add-to-list 'default-frame-alist '(background-color . "black"))

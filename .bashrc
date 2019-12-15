@@ -5,7 +5,13 @@ if command -v thefuck >/dev/null 2>&1; then
     eval $(thefuck --alias)
     alias f="fuck"
 fi
-    
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init bash)"
+fi
+
 alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' |\
  grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head"
 
@@ -42,7 +48,13 @@ function cd() {
     then
         source venv/bin/activate
     fi
-    ls -l
+
+    if [[ $? -eq 0 ]]
+    then
+       ls -l
+    else
+        exit $?
+    fi
 }
 
 function rm() {
@@ -52,7 +64,13 @@ function rm() {
     else
         command rm "$@"
     fi
-    ls -l
+
+    if [[ $? -eq 0 ]]
+    then
+       ls -l
+    else
+        exit $?
+    fi
 }
 
 function cat() {
