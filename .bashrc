@@ -9,7 +9,7 @@ if command -v thefuck >/dev/null 2>&1; then
     eval $(thefuck --alias)
     alias f="fuck"
 fi
-    
+
 if command -v starship >/dev/null 2>&1; then
     eval "$(starship init bash)"
 fi
@@ -37,7 +37,7 @@ function brew() {
 function ls() {
     if [[ $* == *l* ]]
     then
-        command ls -GhL "$@"
+        command ls -GhL --color "$@"
     else
         command ls "$@"
     fi
