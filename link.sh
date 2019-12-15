@@ -24,3 +24,7 @@ echo Created Git settings link
 EmacsSettings=$PWD/.emacs
 ln -sf "$EmacsSettings" ~
 echo Created Emacs settings link
+
+ConfigSettings=$PWD/.config
+ln -sf "$ConfigSettings" ~
+echo Created general config directory link

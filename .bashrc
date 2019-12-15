@@ -1,13 +1,15 @@
 alias python='python3'
 alias pip='pip3'
 
+if [[ -d ~/.linuxbrew ]]; then
+    eval $(/home/pwl45/.linuxbrew/bin/brew shellenv)
+fi
+
 if command -v thefuck >/dev/null 2>&1; then
     eval $(thefuck --alias)
     alias f="fuck"
 fi
-
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-
+    
 if command -v starship >/dev/null 2>&1; then
     eval "$(starship init bash)"
 fi
@@ -53,7 +55,7 @@ function cd() {
     then
        ls -l
     else
-        exit $?
+        return $?
     fi
 }
 
@@ -69,7 +71,7 @@ function rm() {
     then
        ls -l
     else
-        exit $?
+        return $?
     fi
 }
 

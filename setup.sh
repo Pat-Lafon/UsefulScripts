@@ -29,22 +29,32 @@ codeExtensions=(DavidAnson.vscode-markdownlint \
                 wayou.vscode-todo-highlight \
                 zxh404.vscode-proto3)
 
-# Check homebrew installer is available
-if command -v xcode-select >/dev/null 2>&1; then
-    echo "xcode-select already installed"
-else
-    echo "xcode-select not found"
-    xcode-select --install
+# Check if xcode is installed on mac
+if [ "$(uname)" == "Darwin" ]; then
+    if command -v xcode-select >/dev/null 2>&1; then
+        echo "xcode-select already installed"
+    else
+        echo "xcode-select not found"
+        xcode-select --install
+    fi
 fi
 
+# Check homebrew installer is available
 if command -v brew >/dev/null 2>&1; then
     echo "brew already installed"
 else
     echo "brew not found"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    if [ "$(uname)" == "Darwin" ]; then
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    else
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    fi
+    if [[ -d ~/.linuxbrew ]]; then
+        eval $(/home/pwl45/.linuxbrew/bin/brew shellenv)
+    fi
 fi
 
-# Doing installation
+# Install brew bottles
 for i in "${brewPackages[@]}"; do
     if brew ls --versions "$i" > /dev/null; then
         echo "$i" was already installed
@@ -54,14 +64,17 @@ for i in "${brewPackages[@]}"; do
 done
 brew upgrade
 
-for i in "${brewCasks[@]}"; do
-    if brew cask ls --versions "$i" > /dev/null; then
-        echo "$i" was already installed
-    else
-        brew cask install "$i"
-    fi
-done
-brew cask upgrade
+# Install brew casks, only available on mac
+if [ "$(uname)" == "Darwin" ]; then
+    for i in "${brewCasks[@]}"; do
+        if brew cask ls --versions "$i" > /dev/null; then
+            echo "$i" was already installed
+        else
+            brew cask install "$i"
+        fi
+    done
+    brew cask upgrade
+fi
 
 if command -v code >/dev/null 2>&1; then
     currentExtensions="code --list-extensions"
