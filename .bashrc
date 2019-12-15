@@ -37,7 +37,11 @@ function brew() {
 function ls() {
     if [[ $* == *l* ]]
     then
-        command ls -GhL --color "$@"
+        if [ "$(uname)" == "Darwin" ]; then
+            command ls -GhL "$@"
+        else
+            command ls -GhL --color "$@"
+        fi
     else
         command ls "$@"
     fi
