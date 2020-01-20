@@ -18,6 +18,7 @@ alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[
  grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head"
 
 # common mistakes
+## testing this out
 alias cd..='cd ..'
 
 
