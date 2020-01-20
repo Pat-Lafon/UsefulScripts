@@ -15,6 +15,7 @@
     "editor.formatOnPaste": true,
     "editor.hover.delay": 100,
     "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
     "editor.rulers": [
         120
     ],

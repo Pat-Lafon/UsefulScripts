@@ -2,11 +2,13 @@
 
 export PATH=${PATH}:/usr/textbin
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export HISTCONTROL=erasedups
 
 if [ -f /usr/libexec/java_hom ]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 fi
-  
+
 if [ "$(uname)" == "Darwin" ]; then
     export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
