@@ -1,3 +1,7 @@
+;; Set option key to be the meta key
+(setq mac-option-modifier 'meta)
+(setq mac-escape-modifier nil)
+
 ;; So that emacs follows my links without prompt
 (setq vc-follow-symlinks t)
 
