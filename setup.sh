@@ -50,7 +50,7 @@ else
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     fi
     if [[ -d ~/.linuxbrew ]]; then
-        eval $(/home/pwl45/.linuxbrew/bin/brew shellenv)
+        eval "$(/home/pwl45/.linuxbrew/bin/brew shellenv)"
     fi
 fi
 

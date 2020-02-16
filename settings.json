@@ -108,5 +108,8 @@
     "html.format.wrapLineLength": 120,
     "html.format.indentInnerHtml": true,
     // Java settings
-    "java.configuration.checkProjectSettingsExclusions": false
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "files.associations": {
+        ".emacs": "lisp"
+    }
 }
