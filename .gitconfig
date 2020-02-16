@@ -8,6 +8,9 @@
 [core]
     editor = emacs
 
+[alias]
+    cleanup = !sh ~/UsefulScripts/git_aliases/cleanup.sh
+
 [color]
     ui = true
 
