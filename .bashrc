@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias python='python3'
 alias pip='pip3'
 
@@ -9,11 +11,11 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 if [[ -d ~/.linuxbrew ]]; then
-    eval $(/home/pwl45/.linuxbrew/bin/brew shellenv)
+    eval "$(/home/pwl45/.linuxbrew/bin/brew shellenv)"
 fi
 
 if command -v thefuck >/dev/null 2>&1; then
-    eval $(thefuck --alias)
+    eval "$(thefuck --alias)"
     alias f="fuck"
 fi
 
@@ -101,22 +103,22 @@ function cat() {
 }
 
 function extract() {
-    if [ -f $1 ]; then
+    if [ -f "$1" ]; then
         case $1 in
-            *.tar.bz2)   tar xjf $1     ;;
-            *.tar.gz)    tar xzf $1     ;;
-            *.bz2)       bunzip2 $1     ;;
-            *.rar)       unrar e $1     ;;
-            *.gz)        gunzip $1      ;;
-            *.tar)       tar xf $1      ;;
-            *.tbz2)      tar xjf $1     ;;
-            *.tgz)       tar xzf $1     ;;
-            *.zip)       unzip $1       ;;
-            *.Z)         uncompress $1  ;;
-            *.7z)        7z x $1        ;;
+            *.tar.bz2)   tar xjf "$1"     ;;
+            *.tar.gz)    tar xzf "$1"     ;;
+            *.bz2)       bunzip2 "$1"     ;;
+            *.rar)       unrar e "$1"     ;;
+            *.gz)        gunzip "$1"      ;;
+            *.tar)       tar xf "$1"      ;;
+            *.tbz2)      tar xjf "$1"     ;;
+            *.tgz)       tar xzf "$1"     ;;
+            *.zip)       unzip "$1"       ;;
+            *.Z)         uncompress "$1"  ;;
+            *.7z)        7z x "$1"        ;;
             *)     echo "'$1' cannot be extracted via extract()" ;;
         esac
     else
-	    echo $1 is not a valid file
+	    echo "$1" is not a valid file
     fi
 }

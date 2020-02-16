@@ -1,4 +1,4 @@
-# .bash_profile
+#!/bin/bash
 
 export PATH=${PATH}:/usr/textbin
 export PATH="/usr/local/sbin:$PATH"
@@ -6,7 +6,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export HISTCONTROL=erasedups
 
 if [ -f /usr/libexec/java_hom ]; then
-    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 fi
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -22,7 +22,7 @@ fi
 ls -l
 
 if [ "$(uname)" == "Darwin" ]; then
-    (&>/dev/null find ~ -name ".DS_Store" -delete &)
+    (find ~ -name ".DS_Store" -delete &>/dev/null &)
 fi
 
 # opam configuration
