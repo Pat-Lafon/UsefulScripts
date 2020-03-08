@@ -102,6 +102,13 @@ function cat() {
     else
         command ccat "$@"
     fi
+
+    if [[ $? -eq 0 ]]
+    then
+        return $?
+    else
+        command cat "$@"
+    fi
 }
 
 function extract() {
