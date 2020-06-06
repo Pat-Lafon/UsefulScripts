@@ -22,6 +22,12 @@ staged_count.style = "green"
 renamed = "👅"
 deleted = "🗑"
 
+[erlang]
+symbol = "e "
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 30
+style = "bold yellow"
 
 [hostname]
 ssh_only = true

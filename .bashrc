@@ -28,11 +28,6 @@ alias duck='{ du -ha | sort -rh | head -20;} 2> /dev/null'
 alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' |\
  grep -v \"./\" | column -c3 -s \" \" -t | sort -nr | nl | head"
 
-# common mistakes
-## testing this out
-alias cd..='cd ..'
-
-
 # This makes some assumptions about the ordering of arguments that may not be true
 function brew() {
     if [[ $1 == "rm" || $1 == "uninstall" ]]

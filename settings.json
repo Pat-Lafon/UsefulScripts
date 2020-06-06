@@ -112,5 +112,9 @@
     "java.configuration.checkProjectSettingsExclusions": false,
     "files.associations": {
         ".emacs": "lisp"
-    }
+    },
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "java.semanticHighlighting.enabled": true
 }
