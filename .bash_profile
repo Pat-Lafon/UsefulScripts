@@ -1,8 +1,12 @@
 #!/bin/bash
 
-export PATH=${PATH}:/usr/textbin
+export PATH="$PATH:/usr/textbin"
+
+#https://stackoverflow.com/questions/40317578/yarn-global-command-not-working
+export PATH="$PATH:$(yarn global bin)"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/opt/erlang@22/bin:$PATH"
 export HISTCONTROL=erasedups
 
 if [ -f /usr/libexec/java_hom ]; then
@@ -29,4 +33,3 @@ fi
 
 # opam configuration
 test -r /Users/patricklafontaine/.opam/opam-init/init.sh && . /Users/patricklafontaine/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-export PATH="/usr/local/opt/erlang@22/bin:$PATH"
