@@ -9,8 +9,8 @@ else
 fi
 
 # Things to be installed
-brewPackages=(emacs python thefuck git htop docker erlang ocaml dune opam bash rebar3 gcc ccat mdcat starship hyperfine shellcheck)
-brewCasks=(visual-studio-code firefox mactex java slack spotify discord krita selfcontrol winds)
+brewPackages=(emacs python thefuck git htop docker erlang ocaml dune opam bash rebar3 gcc ccat mdcat starship hyperfine shellcheck yarn cmake clang-format)
+brewCasks=(visual-studio-code adoptopenjdk8 firefox mactex java slack spotify zulip krita selfcontrol winds)
 codeExtensions=(bmuskalla.vscode-tldr \
                 DavidAnson.vscode-markdownlint \
                 devine-davies.make-hidden \
