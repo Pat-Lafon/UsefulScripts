@@ -31,5 +31,4 @@ style = "bold yellow"
 
 [hostname]
 ssh_only = true
-prefix = "⟪"
-suffix = "⟫"
+format = "⟪[$hostname]($style)⟫ in "
