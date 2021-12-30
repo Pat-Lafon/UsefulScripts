@@ -9,35 +9,45 @@ else
 fi
 
 # Things to be installed
-brewPackages=(emacs python thefuck git htop docker erlang ocaml dune opam bash rebar3 gcc ccat mdcat starship hyperfine shellcheck yarn cmake clang-format)
-brewCasks=(visual-studio-code adoptopenjdk8 firefox mactex java slack spotify zulip krita selfcontrol winds)
-codeExtensions=(bmuskalla.vscode-tldr \
-                DavidAnson.vscode-markdownlint \
-                devine-davies.make-hidden \
-                freebroccolo.reasonml \
-                geoffkaile.latex-count \
-                hiro-sun.vscode-emacs \
-                James-Yu.latex-workshop \
-                maelvalais.dune \
-                mattn.Lisp \
-                ms-python.python \
-                ms-vscode-remote.remote-ssh \
-                ms-vscode-remote.remote-ssh-edit \
-                ms-vscode.cpptools \
-                ms-vscode.wordcount \
-                pgourlain.erlang \
-                redhat.java \
-                ritwickdey.LiveServer \
-                rust-lang.rust \
-                streetsidesoftware.code-spell-checker \
-                VisualStudioExptTeam.vscodeintellicode \
-                timonwong.shellcheck \
-                vscjava.vscode-java-debug \
-                vscjava.vscode-java-dependency \
-                vscjava.vscode-java-pack \
-                vscjava.vscode-java-test \
-                wayou.vscode-todo-highlight \
-                xaver.clang-format)
+
+# `brew leaves > brew_leaves.txt`
+mapfile -t brewPackages < brew_leaves.txt
+# brewPackages=(emacs python thefuck git htop docker erlang ocaml dune opam bash rebar3 gcc ccat mdcat starship hyperfine shellcheck yarn cmake clang-format wget scala open-mpi node hugo graphviz gradle gh google-java-format)
+
+# `brew list --casks > brew_casks.txt`
+mapfile -t brewCasks < brew_casks.txt
+# brewCasks=(adobe-acrobat-reader battle-net discord firefox intellij-idea-ce krita mactex netnewswire omnifocus selfcontrol slack spotify steam temurin8 visual-studio-code whatsapp zoom zotero)
+
+# `code --list-extensions > vscode_extensions.txt`
+mapfile -t codeExtensions < vscode_extensions.txt
+
+# codeExtensions=(bmuskalla.vscode-tldr \
+#                 DavidAnson.vscode-markdownlint \
+#                 devine-davies.make-hidden \
+#                 freebroccolo.reasonml \
+#                 geoffkaile.latex-count \
+#                 hiro-sun.vscode-emacs \
+#                 James-Yu.latex-workshop \
+#                 maelvalais.dune \
+#                 mattn.Lisp \
+#                 ms-python.python \
+#                 ms-vscode-remote.remote-ssh \
+#                 ms-vscode-remote.remote-ssh-edit \
+#                 ms-vscode.cpptools \
+#                 ms-vscode.wordcount \
+#                 pgourlain.erlang \
+#                 redhat.java \
+#                 ritwickdey.LiveServer \
+#                 rust-lang.rust \
+#                 streetsidesoftware.code-spell-checker \
+#                 VisualStudioExptTeam.vscodeintellicode \
+#                 timonwong.shellcheck \
+#                 vscjava.vscode-java-debug \
+#                 vscjava.vscode-java-dependency \
+#                 vscjava.vscode-java-pack \
+#                 vscjava.vscode-java-test \
+#                 wayou.vscode-todo-highlight \
+#                 xaver.clang-format)
 
 # Check if xcode is installed on mac
 if [ "$(uname)" == "Darwin" ]; then
