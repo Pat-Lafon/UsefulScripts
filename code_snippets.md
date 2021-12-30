@@ -30,7 +30,7 @@ This comes as a built in function so there isn't anything that special but I did
 
 ## An improved list directory
 
-ls is my most used command so trying to improve it's output is a no-brainer. Not sure if I want to see that a link is symbolic or not so it may not be worth adding ```-L```.
+ls is my most used command so trying to improve its output is a no-brainer. Not sure if I want to see that a link is symbolic or not so it may not be worth adding ```-L```.
 
 ```bash
 function ls() {
@@ -43,7 +43,7 @@ function ls() {
 }
 ```
 
-## On entering a directory activate any virtual environment and show files
+## On entering a directory, activate any virtual environment and show files
 
 Intuitively, I want to use symbolic links as shortcuts to get to useful directories. I feel like without ```cd -P``` the shell is lying to you.
 
