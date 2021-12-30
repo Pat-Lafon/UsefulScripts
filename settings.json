@@ -26,7 +26,7 @@
     "workbench.editor.enablePreview": false,
     "diffEditor.ignoreTrimWhitespace": false,
     "workbench.statusBar.visible": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     // Git settings
     "git.autofetch": true,
     "git.promptToSaveFilesBeforeCommit": "always",
@@ -84,7 +84,6 @@
     ],
     // Python settings
     "python.autoComplete.addBrackets": true,
-    "python.jediEnabled": false,
     "python.formatting.provider": "black",
     "python.languageServer": "Microsoft",
     "[python]": {
@@ -98,13 +97,13 @@
     // Latex settings
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
-    "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.latex.autoBuild.interval": 2000,
     "latex-workshop.chktex.enabled": true,
     "latex-workshop.intellisense.update.delay": 200,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.message.warning.show": false,
+    "latex-workshop.message.information.show": false,
     "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
     // Html settings
     "html.format.wrapLineLength": 120,
@@ -126,11 +125,41 @@
             "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
         }
     ],
-    "workbench.colorTheme": "Complete Dark",
-    "rust.all_features": true,
-    "rust.unstable_features": true,
-    "rust.build_on_save": true,
-    "rust-client.trace.server": "messages",
-    "rust-client.updateOnStartup": true,
-    "rust-client.channel": "nightly",
+    "rust-analyzer.cargo.allFeatures": true,
+    "rust-analyzer.inlayHints.typeHints": false,
+    "grammarly.diagnostics": {
+        "[markdown]": {
+            "ignore": [
+                "code"
+            ]
+        }
+    },
+    "cSpell.userWords": [
+        "concolic",
+        "performant"
+    ],
+    "grammarly.severity": {
+        "Wordiness": 1,
+        "Pronouns": 1,
+        "AccidentallyConfused": 1,
+        "SVA": 1,
+        "CommonlyConfused": 1,
+        "Verbs": 1,
+        "BasicPunct": 1,
+        "Dialects": 1,
+        "Prepositions": 1,
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb",
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "rust-analyzer.checkOnSave.command": "check",
+    "rust-analyzer.procMacro.enable": true,
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "latex-workshop.latex.outDir": "build",
 }

@@ -1,3 +1,5 @@
+command_timeout = 10000
+
 [cmd_duration]
 disabled = true # Don't show command duration... only since last command not how long it took
 
@@ -17,8 +19,7 @@ stashed = "📦"
 modified = "📝"
 staged.value = "++"
 staged.style = "green"
-staged_count.enabled = true
-staged_count.style = "green"
+staged.enabled = true
 renamed = "👅"
 deleted = "🗑"
 
