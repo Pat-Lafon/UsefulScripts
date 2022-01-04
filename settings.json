@@ -85,7 +85,7 @@
     // Python settings
     "python.autoComplete.addBrackets": true,
     "python.formatting.provider": "black",
-    "python.languageServer": "Microsoft",
+    "python.languageServer": "Default",
     "[python]": {
         "editor.formatOnPaste": false // because black cannot format on paste
     },
@@ -162,4 +162,5 @@
     },
     "liveServer.settings.donotShowInfoMsg": true,
     "latex-workshop.latex.outDir": "build",
+    "python.analysis.completeFunctionParens": true,
 }
