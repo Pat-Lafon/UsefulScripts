@@ -49,5 +49,11 @@ else
     echo "VScode was not installed so we won't do extensions"
 fi
 
+if commnad -v cargo >/dev/null 2>&1; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source $HOME/.cargo/env
+    rustup toolchain install nightly
+fi
+
 chmod +x link.sh
 ./link.sh

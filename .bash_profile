@@ -6,7 +6,6 @@ export PATH="$PATH:/usr/textbin"
 export PATH="$PATH:$(yarn global bin)"
 export PATH="$PATH:~/Library/Python/3.8/bin"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 export HISTCONTROL=erasedups
 
 if [ -f /usr/libexec/java_home ]; then
@@ -39,3 +38,4 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+. "$HOME/.cargo/env"
