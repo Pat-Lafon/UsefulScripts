@@ -4,7 +4,7 @@ export PATH="$PATH:/usr/textbin"
 
 #https://stackoverflow.com/questions/40317578/yarn-global-command-not-working
 export PATH="$PATH:$(yarn global bin)"
-export PATH="$PATH:~/Library/Python/3.8/bin"
+export PATH="$PATH:~/Library/Python/3.9/bin"
 export PATH="/usr/local/sbin:$PATH"
 export HISTCONTROL=erasedups
 
