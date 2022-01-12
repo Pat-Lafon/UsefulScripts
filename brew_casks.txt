@@ -12,7 +12,7 @@ selfcontrol
 slack
 spotify
 steam
-temurin8
+temurin
 visual-studio-code
 whatsapp
 zoom
