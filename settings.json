@@ -63,12 +63,14 @@
         "yml"
     ],
     // TODO_list settings
-    "todohighlight.isCaseSensitive": false,
+    "todohighlight.isCaseSensitive": true,
     "todohighlight.keywords": [
         "todo",
+        "Todo",
+        "TODO",
         "fixme",
         "unimplemented",
-        "Abort."
+        "Admitted."
     ],
     "todohighlight.exclude": [
         "**/node_modules/**",
@@ -84,7 +86,6 @@
         "**/settings.json"
     ],
     // Python settings
-    "python.autoComplete.addBrackets": true,
     "python.formatting.provider": "black",
     "python.languageServer": "Default",
     "[python]": {
@@ -117,7 +118,6 @@
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
     },
-    "java.semanticHighlighting.enabled": true,
     "java.project.importOnFirstTimeStartup": "automatic",
     "java.configuration.runtimes": [
         {
@@ -165,4 +165,5 @@
     "latex-workshop.latex.outDir": "build",
     "python.analysis.completeFunctionParens": true,
     "workbench.colorTheme": "Monokai",
+    "security.workspace.trust.untrustedFiles": "open",
 }

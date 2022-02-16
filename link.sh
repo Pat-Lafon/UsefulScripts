@@ -3,7 +3,9 @@
 # Set up symlinks
 if command -v code >/dev/null 2>&1; then
     CodeSettings=$PWD/settings.json
+    CodeSnippets=$PWD/snippets
     ln -sf "$CodeSettings" ~/Library/Application\ Support/Code/User
+    ln -sf "$CodeSnippets" ~/Library/Application\ Support/Code/User
     echo Created VScode settings link
 else
     echo "VScode is not installed so we won't link settings"
