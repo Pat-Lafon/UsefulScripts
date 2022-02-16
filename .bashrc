@@ -3,12 +3,12 @@
 alias python='python3'
 alias pip='pip3'
 
-if [ "$(uname)" == "Darwin" ]; then
-    alias gcc='gcc-7'
-    alias cc='gcc-7'
-    alias g++='g++-7'
-    alias c++='g++-7'
-fi
+#if [ "$(uname)" == "Darwin" ]; then
+    #alias gcc='gcc-7'
+    #alias cc='gcc-7'
+    #alias g++='g++-7'
+    #alias c++='g++-7'
+#fi
 
 if [[ -d ~/.linuxbrew ]]; then
     eval "$(/home/pwl45/.linuxbrew/bin/brew shellenv)"
