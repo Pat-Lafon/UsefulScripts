@@ -24,9 +24,7 @@
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.enablePreview": false,
-    "diffEditor.ignoreTrimWhitespace": false,
     "workbench.statusBar.visible": true,
-    "window.zoomLevel": 1,
     // Git settings
     "git.autofetch": true,
     "git.promptToSaveFilesBeforeCommit": "always",
@@ -100,7 +98,6 @@
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
     "latex-workshop.latex.autoBuild.interval": 2000,
-    "latex-workshop.chktex.enabled": true,
     "latex-workshop.intellisense.update.delay": 200,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.synctex.afterBuild.enabled": true,
@@ -127,7 +124,6 @@
         }
     ],
     "rust-analyzer.cargo.allFeatures": true,
-    "rust-analyzer.inlayHints.typeHints": false,
     "grammarly.diagnostics": {
         "[markdown]": {
             "ignore": [
@@ -154,7 +150,6 @@
         "*.ipynb": "jupyter.notebook.ipynb",
         "*.pdf": "latex-workshop-pdf-hook"
     },
-    "rust-analyzer.checkOnSave.command": "check",
     "rust-analyzer.procMacro.enable": true,
     "files.watcherExclude": {
         "**/.bloop": true,
@@ -166,4 +161,24 @@
     "python.analysis.completeFunctionParens": true,
     "workbench.colorTheme": "Monokai",
     "security.workspace.trust.untrustedFiles": "open",
+    "git.requireGitUserConfig": false,
+    "git.confirmSync": false,
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/objects",
+        ".vscode",
+        ".vscode-insiders",
+        "*.v"
+    ],
+    "editor.snippetSuggestions": "top",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "window.zoomLevel": 2,
+    "crates.localCargoIndexBranch": "origin/HEAD",
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "haskell.manageHLS": "GHCup",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "rust-analyzer.hover.actions.references.enable": true,
+    "latex-workshop.linting.chktex.enabled": true,
 }

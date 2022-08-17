@@ -2,11 +2,13 @@
 
 export PATH="$PATH:/usr/textbin"
 
-#https://stackoverflow.com/questions/40317578/yarn-global-command-not-working
-export PATH="$PATH:$(yarn global bin)"
 export PATH="$PATH:~/Library/Python/3.9/bin"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export HISTCONTROL=erasedups
+
+## THIS IS FOR GHCI, the interpreter of Haskell
+export ghci="TERM=dumb ghci"
 
 if [ -f /usr/libexec/java_home ]; then
     JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
@@ -39,3 +41,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
+
+export PATH="$HOME/.elan/bin:$PATH"
+export PATH="/opt/homebrew/opt/ghc@9/bin:$PATH"

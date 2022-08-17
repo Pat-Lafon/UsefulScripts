@@ -39,5 +39,13 @@
 	"Inversion" : {
 		"prefix" : ["inversion"],
 		"body" : ["inversion $1."]
+	},
+	"Proof" : {
+		"prefix" : ["Proof"],
+		"body" : ["Proof."]
+	},
+	"Qed" : {
+		"prefix" : ["Qed"],
+		"body" : ["Qed."]
 	}
 }
