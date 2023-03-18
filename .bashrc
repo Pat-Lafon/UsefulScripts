@@ -14,15 +14,6 @@ if [[ -d ~/.linuxbrew ]]; then
     eval "$(/home/pwl45/.linuxbrew/bin/brew shellenv)"
 fi
 
-if command -v thefuck >/dev/null 2>&1; then
-    eval "$(thefuck --alias)"
-    alias f="fuck"
-fi
-
-if command -v starship >/dev/null 2>&1; then
-    eval "$(starship init bash)"
-fi
-
 alias duck='{ du -ha | sort -rh | head -20;} 2> /dev/null'
 
 alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[a] \" \" CMD[a]/count*100 \"% \" a;}' |\

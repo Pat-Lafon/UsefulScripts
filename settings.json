@@ -87,7 +87,8 @@
     "python.formatting.provider": "black",
     "python.languageServer": "Default",
     "[python]": {
-        "editor.formatOnPaste": false // because black cannot format on paste
+        "editor.formatOnPaste": false,
+        "editor.formatOnType": true // because black cannot format on paste
     },
     // C++ settings
     "C_Cpp.default.cppStandard": "c++17",
@@ -123,7 +124,6 @@
             "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
         }
     ],
-    "rust-analyzer.cargo.allFeatures": true,
     "grammarly.diagnostics": {
         "[markdown]": {
             "ignore": [
@@ -174,11 +174,17 @@
     ],
     "editor.snippetSuggestions": "top",
     "diffEditor.ignoreTrimWhitespace": false,
-    "window.zoomLevel": 2,
     "crates.localCargoIndexBranch": "origin/HEAD",
     "rust-analyzer.inlayHints.typeHints.enable": false,
     "haskell.manageHLS": "GHCup",
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "rust-analyzer.hover.actions.references.enable": true,
     "latex-workshop.linting.chktex.enabled": true,
+    "haskell.toolchain": {
+        "ghc": "9.2.2",
+        "hls": "latest",
+        "stack": "recommended"
+    },
+    "rust-analyzer.assist.emitMustUse": true,
+    "window.zoomLevel": 1,
 }

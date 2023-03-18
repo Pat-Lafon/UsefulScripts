@@ -34,13 +34,16 @@ fi
 
 # opam configuration
 test -r /Users/patricklafontaine/.opam/opam-init/init.sh && . /Users/patricklafontaine/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 eval "$(/opt/homebrew/bin/brew shellenv)"
-. "$HOME/.cargo/env"
 
-export PATH="$HOME/.elan/bin:$PATH"
 export PATH="/opt/homebrew/opt/ghc@9/bin:$PATH"
+export PATH="/Users/patricklafontaine/.deno/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+eval "$(starship init bash)"
+. "$HOME/.cargo/env"
