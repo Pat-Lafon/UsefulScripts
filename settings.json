@@ -84,11 +84,12 @@
         "**/settings.json"
     ],
     // Python settings
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "none",
     "python.languageServer": "Default",
     "[python]": {
         "editor.formatOnPaste": false,
-        "editor.formatOnType": true // because black cannot format on paste
+        "editor.formatOnType": true, // because black cannot format on paste
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     // C++ settings
     "C_Cpp.default.cppStandard": "c++17",
@@ -186,5 +187,17 @@
         "stack": "recommended"
     },
     "rust-analyzer.assist.emitMustUse": true,
+    "editor.inlineSuggest.enabled": true,
+    "git.openRepositoryInParentFolders": "never",
+    "lldb.suppressUpdateNotifications": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "latex": false,
+        "coq": false
+    },
     "window.zoomLevel": 1,
+    "latex-workshop.bibtex-format.sort.enabled": true,
 }
