@@ -124,3 +124,11 @@ A little extra work is done so that this line can run in the background and do s
 ```bash
 (&>/dev/null find ~ -name ".DS_Store" -delete &)
 ```
+
+## Brew auto update
+
+Set up brew to auto update/upgrade
+
+```bash
+brew autoupdate start --upgrade
+```
