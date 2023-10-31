@@ -6,6 +6,13 @@ export PATH="$PATH:~/Library/Python/3.9/bin"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export HISTCONTROL=erasedups
+export CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
+export HOMEBREW_NO_INSTALL_CLEANUP=false
+
+## Docker for m1 stuff
+export DOCKER_BUILDKIT=0
+export COMPOSE_DOCKER_CLI_BUILD=0
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 ## THIS IS FOR GHCI, the interpreter of Haskell
 export ghci="TERM=dumb ghci"

@@ -40,9 +40,9 @@ function ls() {
     if [[ $* == *l* ]]
     then
         if [ "$(uname)" == "Darwin" ]; then
-            command ls -GhL "$@"
+            command ls -GhLa "$@"
         else
-            command ls -GhL --color "$@"
+            command ls -GhLa --color "$@"
         fi
     else
         command ls "$@"
