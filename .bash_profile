@@ -23,7 +23,7 @@ if [ -f /usr/libexec/java_home ]; then
 fi
 
 if [ "$(uname)" == "Darwin" ]; then
-    export BASH_SILENCE_DEPRECATION_WARNING=1
+    export BASH_SILENCE_DEPRECATION_WARNING=
 fi
 
 printf '\033[8;25;100t'
@@ -43,8 +43,6 @@ fi
 test -r /Users/patricklafontaine/.opam/opam-init/init.sh && . /Users/patricklafontaine/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export PATH="/opt/homebrew/opt/ghc@9/bin:$PATH"
@@ -54,3 +52,6 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 eval "$(starship init bash)"
 . "$HOME/.cargo/env"
+export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
