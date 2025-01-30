@@ -130,5 +130,5 @@ A little extra work is done so that this line can run in the background and do s
 Set up brew to auto update/upgrade and cleanup every 12 hours
 
 ```bash
-brew autoupdate start 43200 --cleanup --upgrade
+brew autoupdate start 43200 --cleanup --upgrade --sudo
 ```
