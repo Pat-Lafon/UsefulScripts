@@ -117,4 +117,6 @@ function extract() {
 	    echo "$1" is not a valid file
     fi
 }
-. "$HOME/.cargo/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
