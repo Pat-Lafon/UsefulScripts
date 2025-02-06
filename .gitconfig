@@ -10,6 +10,7 @@
 
 [alias]
     cleanup = !sh ~/UsefulScripts/git_aliases/cleanup.sh
+    up = !sh ~/UsefulScripts/git_aliases/up.sh
 
 [color]
     ui = true
