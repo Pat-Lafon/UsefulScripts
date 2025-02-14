@@ -7,7 +7,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export HISTCONTROL=erasedups
 export CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
-export HOMEBREW_NO_INSTALL_CLEANUP=false
+export HOMEBREW_NO_INSTALL_CLEANUP=
 
 ## Docker for m1 stuff
 export DOCKER_BUILDKIT=0
