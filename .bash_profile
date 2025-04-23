@@ -26,8 +26,6 @@ if [ "$(uname)" == "Darwin" ]; then
     export BASH_SILENCE_DEPRECATION_WARNING=
 fi
 
-printf '\033[8;25;100t'
-
 if [ -f ~/.bashrc ]; then
     # shellcheck source=./.bashrc
     source ~/.bashrc
@@ -40,12 +38,12 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 # opam configuration
-test -r /Users/patricklafontaine/.opam/opam-init/init.sh && . /Users/patricklafontaine/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+test -r /Users/patricklafontaine/.opam/opam-init/init.sh && . /Users/patricklafontaine/.opam/opam-init/init.sh >/dev/null 2>/dev/null || true
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH="/opt/homebrew/opt/ghc@9/bin:$PATH"
+
 export PATH="/Users/patricklafontaine/.deno/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
@@ -55,3 +53,4 @@ eval "$(starship init bash)"
 export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
