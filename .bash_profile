@@ -49,6 +49,7 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 eval "$(starship init bash)"
+eval "$(atuin init bash)"
 . "$HOME/.cargo/env"
 export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
