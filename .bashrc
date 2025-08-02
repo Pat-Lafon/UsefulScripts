@@ -21,28 +21,38 @@ alias common="history | awk '{CMD[\$2]++;count++;}END { for (a in CMD)print CMD[
 
 # This makes some assumptions about the ordering of arguments that may not be true
 function brew() {
-    if [[ $1 == "rm" || $1 == "uninstall" ]]
-    then
+    if [[ $1 == "rm" || $1 == "uninstall" ]]; then
+        local pkg="$2"  # Save package name before shift
         shift
         command brew rm "$@"
-        deps=$(join <(brew leaves) <(brew deps $1))
-        if [[ $deps != "" ]]
-        then
-            echo $deps
-            command brew rm $deps
+
+        # Only check deps if we actually removed something successfully
+        if [[ $? -eq 0 && -n "$pkg" ]]; then
+            local deps=$(join <(brew leaves) <(brew deps "$pkg") 2>/dev/null)
+            if [[ -n "$deps" ]]; then
+                echo "Removing unused dependencies: $deps"
+                command brew rm $deps
+            fi
         fi
     else
         command brew "$@"
     fi
 }
 
+function git() {
+    if [[ "$1" == "push" && "$*" == *"--force"* ]]; then
+        command git push "${@/--force/--force-with-lease}"
+    else
+        command git "$@"
+    fi
+}
+
 function ls() {
-    if [[ $* == *l* ]]
-    then
-        if [ "$(uname)" == "Darwin" ]; then
+    if [[ $* == *l* ]]; then
+        if [[ "$(uname)" == "Darwin" ]]; then
             command ls -GhLa "$@"
         else
-            command ls -GhLa --color "$@"
+            command ls -GhLa --color=auto "$@"
         fi
     else
         command ls "$@"
@@ -52,17 +62,13 @@ function ls() {
 function cd() {
     command cd -P "$@" || return
 
-    if [[ -d venv ]]
-    then
+    # Auto-activate venv if present
+    if [[ -d venv ]]; then
         source venv/bin/activate
     fi
 
-    if [[ $? -eq 0 ]]
-    then
-       ls -l
-    else
-        return $?
-    fi
+    # Always ls after successful cd (the $? check is redundant here)
+    ls -l
 }
 
 function rm() {
@@ -82,18 +88,10 @@ function rm() {
 }
 
 function cat() {
-    if [[ $* == *.md* ]]
-    then
-        command mdcat "$@"
+    if [[ $* == *.md* ]]; then
+        command mdcat "$@" 2>/dev/null || command cat "$@"
     else
-        command ccat "$@"
-    fi
-
-    if [[ $? -eq 0 ]]
-    then
-        return $?
-    else
-        command cat "$@"
+        command ccat "$@" 2>/dev/null || command cat "$@"
     fi
 }
 
@@ -117,5 +115,3 @@ function extract() {
 	    echo "$1" is not a valid file
     fi
 }
-
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
