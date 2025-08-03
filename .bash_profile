@@ -26,6 +26,7 @@ pathadd "/usr/local/sbin"
 pathadd "$HOME/Library/Python/3.9/bin"
 pathadd "/usr/textbin"
 pathadd "/opt/homebrew/opt/llvm@16/bin"
+pathadd "$HOME/.elan/bin"
 
 # -------------- Development Tool Configuration --------------
 # Cargo configuration
@@ -72,6 +73,11 @@ fi
 [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 [ -x "$(command -v starship)" ] && eval "$(starship init bash)"
 [ -x "$(command -v atuin)" ] && eval "$(atuin init bash)"
+
+# Only load bash-preexec if not in a VS Code terminal or Copilot agent context
+if [[ -z "$VSCODE_INJECTION" && -z "$TERM_PROGRAM" ]] || [[ "$TERM_PROGRAM" != "vscode" ]]; then
+    [ -f "$HOMEBREW_PREFIX"/etc/profile.d/bash-preexec.sh ] && . "$HOMEBREW_PREFIX"/etc/profile.d/bash-preexec.sh
+fi
 
 # Source cargo environment if it exists
 if [ -f "$HOME/.cargo/env" ]; then
