@@ -41,7 +41,10 @@ function brew() {
 
 function git() {
     if [[ "$1" == "push" && "$*" == *"--force"* ]]; then
-        command git push "${@/--force/--force-with-lease}"
+        # Replace --force with --force-with-lease in the command line
+        local cmd_line="$*"
+        cmd_line="${cmd_line// --force/ --force-with-lease}"
+        eval "command git $cmd_line"
     else
         command git "$@"
     fi
