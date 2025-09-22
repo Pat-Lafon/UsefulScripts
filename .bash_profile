@@ -86,3 +86,5 @@ fi
 
 # List directory contents when opening a new terminal (personal preference)
 ls -l
+
+complete -C /opt/homebrew/bin/terraform terraform
