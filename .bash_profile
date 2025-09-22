@@ -74,11 +74,6 @@ fi
 [ -x "$(command -v starship)" ] && eval "$(starship init bash)"
 [ -x "$(command -v atuin)" ] && eval "$(atuin init bash)"
 
-# Only load bash-preexec if not in a VS Code terminal or Copilot agent context
-if [[ -z "$VSCODE_INJECTION" && -z "$TERM_PROGRAM" ]] || [[ "$TERM_PROGRAM" != "vscode" ]]; then
-    [ -f "$HOMEBREW_PREFIX"/etc/profile.d/bash-preexec.sh ] && . "$HOMEBREW_PREFIX"/etc/profile.d/bash-preexec.sh
-fi
-
 # Source cargo environment if it exists
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
