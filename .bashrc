@@ -118,3 +118,51 @@ function extract() {
 	    echo "$1" is not a valid file
     fi
 }
+
+function gh() {
+    if [[ "$1" == "repo" && "$2" == "clone" ]]; then
+        command gh "$@"
+        local exit_code=$?
+
+        if [[ $exit_code -eq 0 ]]; then
+            # Find the repo argument (first non-flag, non-subcommand arg)
+            local repo_arg=""
+            for arg in "${@:3}"; do
+                if [[ "$arg" != -* ]]; then
+                    repo_arg="$arg"
+                    break
+                fi
+            done
+
+            if [[ -n "$repo_arg" ]]; then
+                local repo_name=$(basename "$repo_arg" .git)
+                if [[ -d "$repo_name" ]]; then
+                    (
+                        cd "$repo_name" || exit 1
+                        # Get the repository from the origin remote and set it explicitly
+                        local origin_url=$(git remote get-url origin 2>/dev/null)
+                        if [[ -n "$origin_url" ]]; then
+                            # Extract owner/repo from the URL
+                            local repo_path=""
+                            case "$origin_url" in
+                                *github.com*)
+                                    repo_path=$(echo "$origin_url" | sed -E 's|.*github\.com[:/]([^/]+/[^/]+)(\.git)?.*|\1|')
+                                    ;;
+                            esac
+
+                            if [[ -n "$repo_path" ]]; then
+                                command gh repo set-default "$repo_path" 2>/dev/null || true
+                            else
+                                command gh repo set-default 2>/dev/null || true
+                            fi
+                        fi
+                    )
+                fi
+            fi
+        fi
+
+        return $exit_code
+    else
+        command gh "$@"
+    fi
+}
