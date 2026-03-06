@@ -166,3 +166,36 @@ function gh() {
         command gh "$@"
     fi
 }
+
+function gh() {
+    if [[ "$1" == "repo" && "$2" == "clone" ]]; then
+        command gh "$@"
+        local exit_code=$?
+
+        if [[ $exit_code -eq 0 ]]; then
+            local repo_arg=""
+            for arg in "${@:3}"; do
+                if [[ "$arg" != -* ]]; then
+                    repo_arg="$arg"
+                    break
+                fi
+            done
+
+            if [[ -n "$repo_arg" ]]; then
+                local repo_name=$(basename "$repo_arg" .git)
+                if [[ -d "$repo_name" ]]; then
+                    cd "$repo_name" || return 1
+                    command gh repo set-default "$repo_arg" 2>/dev/null || true
+                fi
+            fi
+        fi
+
+        return $exit_code
+    else
+        command gh "$@"
+    fi
+}
+
+## Need something like this for atuin
+source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
