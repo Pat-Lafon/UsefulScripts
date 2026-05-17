@@ -30,3 +30,8 @@ echo Created Emacs settings link
 ConfigSettings=$PWD/.config
 ln -sf "$ConfigSettings" ~
 echo Created general config directory link
+
+ClaudeSettings=$PWD/claude_settings.json
+mkdir -p ~/.claude
+ln -sf "$ClaudeSettings" ~/.claude/settings.json
+echo Created Claude Code settings link
