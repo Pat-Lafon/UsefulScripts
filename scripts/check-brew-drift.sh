@@ -19,10 +19,10 @@ casks_known=$(brew casks       | awk -F/ '{print; if (NF>1) print $NF}' | sort -
 drift=()
 
 check() {
-    local kind=$1 file=$2 other other_inv primary_upper other_upper known other_known
+    local kind=$1 file=$2 other_inv primary_upper other_upper known other_known
     case $kind in
-        formula) other=cask;    other_inv=brew_casks.txt;  primary_upper=FORMULA; other_upper=CASK;    known=$formulae_known; other_known=$casks_known    ;;
-        cask)    other=formula; other_inv=brew_leaves.txt; primary_upper=CASK;    other_upper=FORMULA; known=$casks_known;    other_known=$formulae_known ;;
+        formula) other_inv=brew_casks.txt;  primary_upper=FORMULA; other_upper=CASK;    known=$formulae_known; other_known=$casks_known    ;;
+        cask)    other_inv=brew_leaves.txt; primary_upper=CASK;    other_upper=FORMULA; known=$casks_known;    other_known=$formulae_known ;;
     esac
 
     echo "=== Checking $kind drift ($file) ==="
