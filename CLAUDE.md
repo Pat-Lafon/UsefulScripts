@@ -53,7 +53,7 @@ Rule of thumb when adding something new: *runs in every interactive shell* (prom
 - `gh repo clone` auto-`cd`s into the cloned dir and sets the default repo.
 - `cat` is piped through `bat --style=plain --paging=never`, falling back to real `cat` if `bat` isn't installed.
 - `ls` with any `l` in the args gets `-GhLa` added.
-- `rm -r*` adds `-f` and runs `ls -l` afterward.
+- `rm -r*` adds `-f`, prompts before deleting any target that has uncommitted git changes, and runs `ls -l` afterward.
 
 When suggesting shell changes, assume the user is running these wrappers — e.g. `git push --force` from their shell is actually `--force-with-lease`.
 

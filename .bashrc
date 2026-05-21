@@ -72,23 +72,46 @@ function ls() {
 function rm() {
     local arg recursive=0
     for arg in "$@"; do
-        if [[ $arg == -[!-]*r* || $arg == -[!-]*R* || $arg == --recursive ]]; then
-            recursive=1
-            break
-        fi
+        case "$arg" in
+            --recursive) recursive=1; break ;;
+            --*) ;;
+            -*[rR]*) recursive=1; break ;;
+        esac
     done
+    local rc
     if (( recursive )); then
+        local target abs_target check_dir repo_root dirty=()
+        for target in "$@"; do
+            [[ $target == -* ]] && continue
+            [[ ! -e $target ]] && continue
+            abs_target=$(cd -- "$(dirname -- "$target")" 2>/dev/null && printf '%s/%s' "$(pwd)" "$(basename -- "$target")") || continue
+            if [[ -d $abs_target ]]; then
+                check_dir=$abs_target
+            else
+                check_dir=$(dirname -- "$abs_target")
+            fi
+            repo_root=$(command git -C "$check_dir" rev-parse --show-toplevel 2>/dev/null) || continue
+            if [[ -n "$(command git -C "$repo_root" status --porcelain -- "$abs_target" 2>/dev/null)" ]]; then
+                dirty+=("$target")
+            fi
+        done
+        if (( ${#dirty[@]} > 0 )); then
+            echo "rm: uncommitted git changes in:" >&2
+            printf '  %s\n' "${dirty[@]}" >&2
+            if [[ -t 0 ]]; then
+                local reply
+                read -r -p "Proceed anyway? [y/N] " reply
+                [[ $reply =~ ^[Yy]$ ]] || { echo "Aborted." >&2; return 1; }
+            fi
+        fi
         command rm -f "$@"
+        rc=$?
     else
         command rm "$@"
+        rc=$?
     fi
-
-    if [[ $? -eq 0 ]]
-    then
-       ls -l
-    else
-        return $?
-    fi
+    (( rc == 0 )) && ls -l
+    return $rc
 }
 
 function cat() {
