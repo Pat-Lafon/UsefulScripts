@@ -1,0 +1,20 @@
+name: Brew inventory drift
+
+on:
+  schedule:
+    - cron: '0 14 * * 1'  # Mondays 14:00 UTC (~7am Pacific)
+  workflow_dispatch:
+
+jobs:
+  check-drift:
+    runs-on: macos-latest
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: '1'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add taps used by inventory
+        run: ./scripts/setup-brew-taps.sh
+
+      - name: Detect drift
+        run: ./scripts/check-brew-drift.sh

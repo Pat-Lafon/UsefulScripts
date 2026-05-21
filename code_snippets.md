@@ -56,12 +56,7 @@ function cd() {
         source venv/bin/activate
     fi
 
-    if [[ $? -eq 0 ]]
-    then
-       ls -l
-    else
-        return $?
-    fi
+    ls -l
 }
 ```
 

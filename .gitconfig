@@ -6,11 +6,11 @@
     user = Pat-Lafon
 
 [core]
-    editor = emacs
+    editor = emacs -nw
 
 [alias]
-    cleanup = !sh ~/UsefulScripts/git_aliases/cleanup.sh
-    up = !sh ~/UsefulScripts/git_aliases/up.sh
+    cleanup = !sh "$(dirname "$(readlink ~/.gitconfig)")/git_aliases/cleanup.sh"
+    up = !sh "$(dirname "$(readlink ~/.gitconfig)")/git_aliases/up.sh"
 
 [color]
     ui = true
@@ -31,6 +31,12 @@
     changed = green
     untracked = red
 
+[merge]
+	conflictStyle = zdiff3
+[rerere]
+	enabled = true
+[diff]
+	algorithm = histogram
 [rebase]
 	autostash = true
 [init]

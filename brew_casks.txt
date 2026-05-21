@@ -1,9 +1,14 @@
 adobe-acrobat-reader
+claude
+claude-code
+cvc5
 discord
-docker
+docker-desktop
 drawio
 firefox
 font-fira-code
+font-source-sans-3
+gcloud-cli
 google-chrome
 krita
 mactex
@@ -13,10 +18,8 @@ raycast
 selfcontrol
 slack
 steam
-temurin8
 temurin@8
 visual-studio-code
-whatsapp-beta
 whatsapp@beta
 zoom
 zotero

@@ -1,18 +1,26 @@
 #!/bin/bash
 # For setting up my mac
 
+cd "$(dirname "$0")" || exit 1
+
 # Things to be installed
 
+brewPackages=()
+brewCasks=()
+codeExtensions=()
+
 # `brew leaves > brew_leaves.txt`
-mapfile -t brewPackages < brew_leaves.txt
-# brewPackages=(emacs python thefuck git htop docker erlang ocaml dune opam bash rebar3 gcc ccat mdcat starship hyperfine shellcheck yarn cmake clang-format wget scala open-mpi node hugo graphviz gradle gh google-java-format)
+[ -f brew_leaves.txt ] && mapfile -t brewPackages < brew_leaves.txt
 
 # `brew list --casks > brew_casks.txt`
-mapfile -t brewCasks < brew_casks.txt
-# brewCasks=(adobe-acrobat-reader battle-net discord firefox intellij-idea-ce krita mactex netnewswire omnifocus selfcontrol slack spotify steam temurin8 visual-studio-code whatsapp zoom zotero)
+[ -f brew_casks.txt ] && mapfile -t brewCasks < brew_casks.txt
 
 # `code --list-extensions > vscode_extensions.txt`
-mapfile -t codeExtensions < vscode_extensions.txt
+[ -f vscode_extensions.txt ] && mapfile -t codeExtensions < vscode_extensions.txt
+
+# Tap any third-party taps used by the inventory files (e.g. cvc5/cvc5 for the
+# cvc5 cask) before installs.
+./scripts/setup-brew-taps.sh
 
 # Install brew bottles
 for i in "${brewPackages[@]}"; do
@@ -33,13 +41,12 @@ if [ "$(uname)" == "Darwin" ]; then
             brew install --cask "$i"
         fi
     done
-    brew cask upgrade
 fi
 
 if command -v code >/dev/null 2>&1; then
-    currentExtensions="code --list-extensions"
+    mapfile -t currentExtensions < <(code --list-extensions)
     for i in "${codeExtensions[@]}"; do
-        if $currentExtensions|grep "$i" >/dev/null 2>&1; then
+        if printf '%s\n' "${currentExtensions[@]}" | grep -Fxq "$i"; then
             echo "$i" is already installed for VScode
         else
             code --install-extension "$i"
@@ -49,10 +56,38 @@ else
     echo "VScode was not installed so we won't do extensions"
 fi
 
-if commnad -v cargo >/dev/null 2>&1; then
+if ! command -v cargo >/dev/null 2>&1; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    source $HOME/.cargo/env
+    source "$HOME/.cargo/env"
     rustup toolchain install nightly
+fi
+
+# Install npm globals (`npm ls -g --depth=0 --parseable ... > npm_globals.txt`).
+if command -v npm >/dev/null 2>&1 && [ -f npm_globals.txt ]; then
+    mapfile -t npmGlobals < npm_globals.txt
+    mapfile -t currentNpm < <(npm ls -g --depth=0 --parseable | tail -n +2 | awk -F/ '{print $NF}')
+    for i in "${npmGlobals[@]}"; do
+        [ -z "$i" ] && continue
+        if printf '%s\n' "${currentNpm[@]}" | grep -Fxq "$i"; then
+            echo "$i" is already installed for npm
+        else
+            npm install -g "$i"
+        fi
+    done
+fi
+
+# Install cargo binaries (`cargo install --list` filtered to crates.io only).
+if command -v cargo >/dev/null 2>&1 && [ -f cargo_installs.txt ]; then
+    mapfile -t cargoBins < cargo_installs.txt
+    mapfile -t currentCargo < <(cargo install --list | grep -E '^[a-zA-Z0-9_-]+ v[0-9].*:$' | awk '{print $1}')
+    for i in "${cargoBins[@]}"; do
+        [ -z "$i" ] && continue
+        if printf '%s\n' "${currentCargo[@]}" | grep -Fxq "$i"; then
+            echo "$i" is already installed for cargo
+        else
+            cargo install "$i"
+        fi
+    done
 fi
 
 chmod +x link.sh

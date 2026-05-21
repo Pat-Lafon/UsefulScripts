@@ -1,11 +1,16 @@
 #!/bin/bash
 
+# Convention: every repo file linked into $HOME is referenced as
+# "$PWD/<path>" on the source side of an `ln` call. .github/workflows/ci.yml
+# greps for that exact `$PWD/...` pattern to verify each source exists in
+# the repo, so don't rewrite these as bare paths or relative refs.
+
 # Set up symlinks
 if command -v code >/dev/null 2>&1; then
     CodeSettings=$PWD/settings.json
-    CodeSnippets=$PWD/snippets
-    ln -sf "$CodeSettings" ~/Library/Application\ Support/Code/User
-    ln -sf "$CodeSnippets" ~/Library/Application\ Support/Code/User
+    CodeSnippets=$PWD/.vscode/snippets
+    ln -sf "$CodeSettings" "$HOME/Library/Application Support/Code/User/settings.json"
+    ln -sfn "$CodeSnippets" "$HOME/Library/Application Support/Code/User/snippets"
     echo Created VScode settings link
 else
     echo "VScode is not installed so we won't link settings"
@@ -28,10 +33,18 @@ ln -sf "$EmacsSettings" ~
 echo Created Emacs settings link
 
 ConfigSettings=$PWD/.config
-ln -sf "$ConfigSettings" ~
+# -n is critical: without it, ln follows an existing ~/.config symlink and
+# creates ~/.config/.config (nesting). With -fn, the existing symlink is
+# unlinked and replaced.
+ln -sfn "$ConfigSettings" ~/.config
 echo Created general config directory link
 
 ClaudeSettings=$PWD/claude_settings.json
 mkdir -p ~/.claude
 ln -sf "$ClaudeSettings" ~/.claude/settings.json
 echo Created Claude Code settings link
+
+SshRc=$PWD/ssh_rc
+mkdir -p ~/.ssh
+ln -sf "$SshRc" ~/.ssh/rc
+echo Created ssh rc link

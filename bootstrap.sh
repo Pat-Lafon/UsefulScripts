@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")" || exit 1
+
 # Check if bash is the main shell
 if [[ $SHELL == /bin/bash ]]; then
     echo "$SHELL"
@@ -23,12 +25,14 @@ if command -v brew >/dev/null 2>&1; then
 else
     echo "brew not found"
     if [ "$(uname)" == "Darwin" ]; then
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     else
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     fi
-    if [[ -d ~/.linuxbrew ]]; then
-        eval "$(/home/pwl45/.linuxbrew/bin/brew shellenv)"
+    if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+        eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
     fi
 fi
 

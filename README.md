@@ -1,19 +1,28 @@
 # Useful_Scripts
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cefd4d0b30d64b62803280aeb84745f4)](https://www.codacy.com/manual/pat.lafontaine19/UsefulScripts?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Pat-Lafon/UsefulScripts&amp;utm_campaign=Badge_Grade) [![Coverage Status](https://coveralls.io/repos/github/Pat-Lafon/UsefulScripts/badge.svg?branch=master)](https://coveralls.io/github/Pat-Lafon/UsefulScripts?branch=master)
-
-My collection of useful scripts
+My collection of dotfiles, config files, and bootstrap scripts for setting up a Mac dev environment.
 
 ## Dot files
 
-The main focus of this repository is on the config files.
+The main focus of this repository is on the config files. Files here are the source of truth; [link.sh](link.sh) symlinks them into `$HOME` (and into VS Code's and Claude Code's config locations).
 
 * Shell: Bash -> [.bash_profile](.bash_profile) and [.bashrc](.bashrc)
 * Editor: Emacs -> [.emacs](.emacs)
-* IDE: Vscode -> [settings.json](settings.json)
-* Version Control: Git -> [.gitconfig](.gitconfig)
-* Remote login: ssh -> [ssh/rc](ssh_rc)
+* IDE: VS Code -> [settings.json](settings.json)
+* Version Control: Git -> [.gitconfig](.gitconfig), with aliases in [git_aliases/](git_aliases/)
+* Claude Code: [claude_settings.json](claude_settings.json) (symlinked to `~/.claude/settings.json`)
+* App configs: [.config/](.config/) (symlinked as a directory)
 
-## Setup file
+## Setup
 
-I've made a rather naive bash script to setup my development environment. It is something I played around with when I got a new laptop and I've roughly kept it up to date. It is currently built on the assumption that your using a mac but as I try out linux distributions I will edit the script to work for each distribution.
+Bootstrap a fresh machine:
+
+```
+make setup   # runs bootstrap.sh -> setup.sh: installs brew, then iterates the inventory files
+make link    # symlinks dotfiles into $HOME (also run automatically by setup.sh)
+make reload  # refreshes the inventory files from current state
+```
+
+The `.txt` inventory files drive what gets installed: `brew_leaves.txt`, `brew_casks.txt`, `brew_cask_taps.txt`, `vscode_extensions.txt`, `npm_globals.txt`, `cargo_installs.txt`. Edit them directly, or regenerate from machine state with `make reload`.
+
+`cargo_installs.txt` only tracks crates.io packages — `make reload` filters out local-path and git-URL installs from `cargo install --list` since those aren't restorable on a fresh machine.

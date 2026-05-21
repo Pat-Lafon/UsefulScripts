@@ -20,7 +20,6 @@
         120
     ],
     "editor.wordWrapColumn": 120,
-    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.enablePreview": false,
@@ -29,37 +28,6 @@
     "git.autofetch": true,
     "git.promptToSaveFilesBeforeCommit": "always",
     "git.confirmEmptyCommits": true,
-    // Spell check settings
-    "cSpell.language": "en",
-    "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "c",
-        "cpp",
-        "csharp",
-        "css",
-        "go",
-        "handlebars",
-        "html",
-        "jade",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "latex",
-        "less",
-        "markdown",
-        "ocaml",
-        "php",
-        "plaintext",
-        "pub",
-        "python",
-        "restructuredtext",
-        "rust",
-        "scss",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "yml"
-    ],
     // TODO_list settings
     "todohighlight.isCaseSensitive": true,
     "todohighlight.keywords": [
@@ -84,18 +52,11 @@
         "**/settings.json"
     ],
     // Python settings
-    "python.formatting.provider": "none",
-    "python.languageServer": "Default",
     "[python]": {
         "editor.formatOnPaste": false,
         "editor.formatOnType": true, // because black cannot format on paste
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    // C++ settings
-    "C_Cpp.default.cppStandard": "c++17",
-    "C_Cpp.default.cStandard": "c17",
-    "C_Cpp.intelliSenseEngine": "Tag Parser",
-    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
     // Latex settings
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
@@ -109,49 +70,13 @@
     // Html settings
     "html.format.wrapLineLength": 120,
     "html.format.indentInnerHtml": true,
-    // Java settings
-    "java.configuration.checkProjectSettingsExclusions": false,
     "files.associations": {
         ".emacs": "lisp"
-    },
-    "[java]": {
-        "editor.defaultFormatter": "redhat.java"
-    },
-    "java.project.importOnFirstTimeStartup": "automatic",
-    "java.configuration.runtimes": [
-        {
-            "name": "JavaSE-1.8",
-            "default": true,
-            "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
-        }
-    ],
-    "grammarly.diagnostics": {
-        "[markdown]": {
-            "ignore": [
-                "code"
-            ]
-        }
-    },
-    "cSpell.userWords": [
-        "concolic",
-        "performant"
-    ],
-    "grammarly.severity": {
-        "Wordiness": 1,
-        "Pronouns": 1,
-        "AccidentallyConfused": 1,
-        "SVA": 1,
-        "CommonlyConfused": 1,
-        "Verbs": 1,
-        "BasicPunct": 1,
-        "Dialects": 1,
-        "Prepositions": 1,
     },
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb",
         "*.pdf": "latex-workshop-pdf-hook"
     },
-    "rust-analyzer.procMacro.enable": true,
     "files.watcherExclude": {
         "**/.bloop": true,
         "**/.metals": true,
@@ -160,32 +85,17 @@
     "liveServer.settings.donotShowInfoMsg": true,
     "latex-workshop.latex.outDir": "build",
     "python.analysis.completeFunctionParens": true,
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Visual Studio Dark",
     "security.workspace.trust.untrustedFiles": "open",
     "git.requireGitUserConfig": false,
     "git.confirmSync": false,
-    "cSpell.ignorePaths": [
-        "package-lock.json",
-        "node_modules",
-        "vscode-extension",
-        ".git/objects",
-        ".vscode",
-        ".vscode-insiders",
-        "*.v"
-    ],
     "editor.snippetSuggestions": "top",
     "diffEditor.ignoreTrimWhitespace": false,
-    "crates.localCargoIndexBranch": "origin/HEAD",
     "rust-analyzer.inlayHints.typeHints.enable": false,
     "haskell.manageHLS": "GHCup",
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "rust-analyzer.hover.actions.references.enable": true,
     "latex-workshop.linting.chktex.enabled": true,
-    "haskell.toolchain": {
-        "ghc": "9.2.2",
-        "hls": "latest",
-        "stack": "recommended"
-    },
     "rust-analyzer.assist.emitMustUse": true,
     "editor.inlineSuggest.enabled": true,
     "git.openRepositoryInParentFolders": "never",
@@ -200,4 +110,13 @@
     },
     "window.zoomLevel": 1,
     "latex-workshop.bibtex-format.sort.enabled": true,
+    "harper-ls.linters": {
+        "SpellCheck": false,
+        "SentenceCapitalization": false,
+        "UseTitleCase": false,
+        "ExpandDependencies": false,
+        "ExpandArgument": false,
+        "ExpandStandardInputAndOutput": false
+    },
+    "terminal.integrated.initialHint": false,
 }
