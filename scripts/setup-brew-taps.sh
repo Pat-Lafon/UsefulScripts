@@ -23,12 +23,15 @@ existing_taps=$(brew tap)
 #   - tap-qualified leaves in brew_leaves.txt (e.g. foo/bar/baz -> foo/bar)
 #   - brew_cask_taps.txt (cask short names don't reveal their tap, so it's listed explicitly)
 # Skip `#` comments and blank lines, merge, dedupe so shared taps only tap once.
+# Trust every tap unconditionally: with $HOMEBREW_REQUIRE_TAP_TRUST set (the CI
+# runner default), an untapped-but-trusted tap is still skipped by `brew casks`/
+# `brew formulae`, and trust is independent of whether the tap already exists.
 while IFS= read -r tap; do
-    if grep -qxFi "$tap" <<<"$existing_taps"; then
-        continue
+    if ! grep -qxFi "$tap" <<<"$existing_taps"; then
+        echo "tapping $tap"
+        brew tap "$tap" || { fail+=("$tap"); continue; }
     fi
-    echo "tapping $tap"
-    brew tap "$tap" || fail+=("$tap")
+    brew trust --tap "$tap" || fail+=("$tap")
 done < <(
     {
         awk -F/ '!/^[[:space:]]*#/ && NF>=3 {print $1"/"$2}' brew_leaves.txt
