@@ -57,6 +57,8 @@
         "editor.formatOnType": true, // because black cannot format on paste
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
+    "python.terminal.activateEnvironment": false,
+    "python.terminal.activateEnvInCurrentTerminal": false,
     // Latex settings
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
@@ -110,13 +112,44 @@
     },
     "window.zoomLevel": 1,
     "latex-workshop.bibtex-format.sort.enabled": true,
-    "harper-ls.linters": {
-        "SpellCheck": false,
-        "SentenceCapitalization": false,
-        "UseTitleCase": false,
-        "ExpandDependencies": false,
-        "ExpandArgument": false,
-        "ExpandStandardInputAndOutput": false
+    // The v2.6 harper extension reads flat "harper.linters.*" keys (a nested
+    // "harper-ls.linters" object is inert). These disable lints that misfire on code
+    // or on the sentence-case-heading, "the why" markdown house style.
+    "harper.linters.OrthographicConsistency": false,
+    "harper.linters.ExpandStandardInputAndOutput": false,
+    "harper.linters.ExpandDirectory": false,
+    "harper.linters.ExpandArgument": false,
+    "harper.linters.SplitWords": false,
+    "harper.linters.SentenceCapitalization": false,
+    "harper.linters.Dashes": false,
+    "harper.linters.CommaFixes": false,
+    "harper.linters.DisjointPrefixes": false,
+    "harper.linters.UseEllipsisCharacter": false,
+    "harper.linters.LongSentences": false,
+    "harper.linters.UseTitleCase": false,
+    "harper.linters.TheHowWhy": false,
+    "harper.linters.MoreAdjective": false,
+    "ltex.dictionary": {
+        "en-US": [
+            "cwd",
+            "dataclass",
+            "dataclasses",
+            "dedup",
+            "deduped",
+            "errored",
+            "handoff",
+            "os",
+            "params",
+            "pathlib",
+            "punchlist",
+            "subagent",
+            "subagents",
+            "subprocess",
+            "traceback",
+            "TypedDict",
+            "unicode"
+        ]
     },
     "terminal.integrated.initialHint": false,
+    "claudeCode.preferredLocation": "panel",
 }

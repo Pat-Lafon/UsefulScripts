@@ -12,6 +12,7 @@ export HISTIGNORE="ls:ll:cd:pwd:exit:clear:history"
 
 alias python='python3'
 alias pip='pip3'
+alias c='claude'
 
 alias duck='{ du -ha | sort -rh | head -20;} 2> /dev/null'
 
