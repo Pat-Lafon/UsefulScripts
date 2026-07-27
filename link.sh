@@ -39,11 +39,6 @@ ConfigSettings=$PWD/.config
 ln -sfn "$ConfigSettings" ~/.config
 echo Created general config directory link
 
-ClaudeSettings=$PWD/claude_settings.json
-mkdir -p ~/.claude
-ln -sf "$ClaudeSettings" ~/.claude/settings.json
-echo Created Claude Code settings link
-
 SshRc=$PWD/ssh_rc
 mkdir -p ~/.ssh
 ln -sf "$SshRc" ~/.ssh/rc

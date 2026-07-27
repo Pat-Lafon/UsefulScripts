@@ -1,6 +1,4 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+# UsefulScripts — dotfiles and machine bootstrap
 
 ## Repository purpose
 
@@ -9,9 +7,9 @@ This repo serves two intertwined roles for the user:
 1. **New-machine bootstrap** — a starting point for setting up a fresh development environment (install Homebrew, restore brew packages/casks, VS Code extensions, dotfiles, symlinks).
 2. **Working collection of utilities and config files** — the dotfiles, shell helpers, git aliases, editor/IDE settings, and tool configs the user actually relies on day-to-day across the various kinds of development they do.
 
-Files in this directory are the *source of truth*; `link.sh` symlinks them into `$HOME` (and into `~/Library/Application Support/Code/User` for VS Code, and `~/.claude/settings.json` for Claude Code). Editing a file here changes the live config on the user's machine via the symlink.
+Files in this directory are the *source of truth*; `link.sh` symlinks them into `$HOME` (and into `~/Library/Application Support/Code/User` for VS Code). Editing a file here changes the live config on the user's machine via the symlink.
 
-Notable consequence: `claude_settings.json` in this repo IS `~/.claude/settings.json`. Edits to it take effect immediately for future Claude Code sessions.
+Claude Code's global settings are *not* here — they live in the `claude-automations` repo (`dotclaude/settings.json`), which owns the `~/.claude/` symlinks.
 
 ## Common commands
 
@@ -31,7 +29,7 @@ Three layers, all driven by plain bash:
 2. **Installers** (`bootstrap.sh`, `setup.sh`) — read the inventory files and install anything missing. `bootstrap.sh` handles prerequisites (shell, xcode-select, brew); `setup.sh` does the iteration.
 3. **Linker** (`link.sh`) — symlinks every dotfile/config from this repo into the appropriate location in `$HOME`. This is what makes "editing a file here" equivalent to "editing the live config."
 
-Dotfiles themselves (`.bashrc`, `.bash_profile`, `.emacs`, `.gitconfig`, VS Code `settings.json`, `claude_settings.json`, `.config/`) are independent and meant to be edited in place.
+Dotfiles themselves (`.bashrc`, `.bash_profile`, `.emacs`, `.gitconfig`, VS Code `settings.json`, `.config/`) are independent and meant to be edited in place.
 
 ## `.bash_profile` vs `.bashrc` split
 
@@ -67,4 +65,3 @@ When you notice a tangential issue while working on a task — a related bug, st
 
 - `.config/` is symlinked as a directory, so subdirs ignored via `.gitignore` (`.config/gcloud`, `.config/iterm2`, `.config/dnd-lore-review`) live on disk but aren't tracked here.
 - `.gitconfig` aliases resolve `git_aliases/*.sh` at runtime via `readlink ~/.gitconfig`, so the repo can live anywhere as long as `.gitconfig` is symlinked from it (which `link.sh` does).
-- `claude_settings.json` is the user's global Claude Code settings; the `permissions.allow` list is curated, so additions should be deliberate (consider the `update-config` or `fewer-permission-prompts` skills).

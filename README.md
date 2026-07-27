@@ -4,13 +4,12 @@ My collection of dotfiles, config files, and bootstrap scripts for setting up a 
 
 ## Dot files
 
-The main focus of this repository is on the config files. Files here are the source of truth; [link.sh](link.sh) symlinks them into `$HOME` (and into VS Code's and Claude Code's config locations).
+The main focus of this repository is on the config files. Files here are the source of truth; [link.sh](link.sh) symlinks them into `$HOME` (and into VS Code's config location).
 
 * Shell: Bash -> [.bash_profile](.bash_profile) and [.bashrc](.bashrc)
 * Editor: Emacs -> [.emacs](.emacs)
 * IDE: VS Code -> [settings.json](settings.json)
 * Version Control: Git -> [.gitconfig](.gitconfig), with aliases in [git_aliases/](git_aliases/)
-* Claude Code: [claude_settings.json](claude_settings.json) (symlinked to `~/.claude/settings.json`)
 * App configs: [.config/](.config/) (symlinked as a directory)
 
 ## Setup

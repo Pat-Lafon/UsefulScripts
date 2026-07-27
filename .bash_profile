@@ -17,7 +17,6 @@ pathadd "$HOME/.cargo/bin"
 pathadd "/opt/homebrew/opt/ruby/bin"
 pathadd "/opt/homebrew/opt/llvm/bin"
 pathadd "/usr/local/sbin"
-pathadd "$HOME/Library/Python/3.9/bin"
 pathadd "/usr/textbin"
 pathadd "$HOME/.elan/bin"
 
