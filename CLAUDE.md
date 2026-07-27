@@ -57,9 +57,7 @@ When suggesting shell changes, assume the user is running these wrappers — e.g
 
 ## Working with `todo.md`
 
-When you complete an item from `todo.md`, **delete the line** rather than checking the box (`- [x]`). The user prefers to keep the file as a list of remaining work, not a history of what was done — git tracks that.
-
-When you notice a tangential issue while working on a task — a related bug, stale config, duplicate, or other cleanup that isn't part of the current request — **add it to `todo.md`** under the appropriate priority section instead of either silently fixing it or only mentioning it in chat. Examples of what triggers a new entry: a sibling of the bug you're fixing (e.g. the `whatsapp-beta`/`whatsapp@beta` dupe surfaced while resolving the temurin one), a stale path or version pin observed in passing, a dead-code branch noticed while reading nearby code. Chat mentions get lost; todo entries persist.
+When you notice a tangential issue while working on a task — a related bug, stale config, duplicate, or other cleanup that isn't part of the current request — **add it to `todo.md`** under the appropriate priority section instead of either silently fixing it or only mentioning it in chat. Examples of what triggers a new entry: a sibling of the bug you're fixing (e.g. a duplicate package name spotted while fixing an unrelated entry), a stale path or version pin observed in passing, a dead-code branch noticed while reading nearby code. Chat mentions get lost; todo entries persist.
 
 ## Notes for editing config files
 

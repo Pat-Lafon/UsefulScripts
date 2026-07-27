@@ -12,11 +12,10 @@ die() {
 deduce_remote() {
   branch=$1
 
-  matches=''
+  set --
   for ref in $(git for-each-ref --format='%(refname:lstrip=2)' "refs/remotes/*/$branch"); do
-    matches="$matches ${ref%"/$branch"}"
+    set -- "$@" "${ref%"/$branch"}"
   done
-  set -- $matches
 
   case $# in
     0) die "no remote has '$branch'" ;;
